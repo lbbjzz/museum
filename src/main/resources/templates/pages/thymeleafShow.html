@@ -1,0 +1,54 @@
+<!--样例界面-->
+<!--改成thymeleaf形式-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/layout::head">
+</head>
+
+<body class="hold-transition  sidebar-mini bg-black ">
+
+
+<div class="wrapper">
+
+    <nav th:replace="fragments/layout::topNav"></nav>
+    <aside th:replace="fragments/layout::leftAside"></aside>
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="text-dark">文物拍照</h1>
+                    </div>
+                    <!--   面包屑-->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">文物拍照</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页面主要内容Main content -->
+        <div class="content" style="padding:20px;">
+            <div class="container-fluid">
+                <!-- 内容 -->
+                <h1>我不要面子的？</h1>
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+
+
+    </div>
+
+
+    <footer th:replace="fragments/layout::footer"></footer>
+</div>
+
+</body>
+</html>

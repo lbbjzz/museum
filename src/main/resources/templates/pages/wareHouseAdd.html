@@ -1,0 +1,127 @@
+
+<!--添加仓库界面-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout::head"></head>
+<body class="hold-transition  sidebar-mini bg-black ">
+<div class="wrapper">
+    <!-- 顶部导航栏 Navbar -->
+    <nav th:replace="fragments/layout::topNav"></nav>
+    <!-- 侧边导航栏 Main Sidebar Container -->
+    <aside th:replace="fragments/layout::leftAside"></aside>
+
+    <!--页面内容 Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+
+        </div>
+        <!-- 页面主要内容Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- 内容 -->
+
+                <div class="row" style="color: black;">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header" style="padding: 8px"> <i class="fa fa-fw fa-edit"></i>添加仓库
+                                <a class="btn btn-primary btn-sm float-right"  href="./wareHouse.html"> <i
+                                        class="fa fa-list"></i> 返回列表</a>
+                            </div>
+                            <div class="card-body">
+                                <form class="needs-validation" action="" novalidate id="wareHouseAddForm" >
+
+
+                                    <div class="form-group row">
+                                        <label for="wareName"  class="col-md-2  col-form-label">仓库名称</label>
+                                        <div class="col-md-10">
+                                            <input type="text" class="form-control" id="wareName"  required="required">
+                                            <div class="invalid-feedback">仓库名称不能为空！</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="wareNum"  class="col-md-2  col-form-label">可收储文物数量</label>
+                                        <div class="col-md-10">
+                                            <input type="number" class="form-control" id="wareNum" min="0" step="20" required>
+                                            <div class="invalid-feedback">请输入合法的数量!</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="wareInNum"  class="col-md-2  col-form-label">已收储文物数量</label>
+                                        <div class="col-md-10">
+                                            <input type="number" class="form-control" id="wareInNum" min="0" step="20" required>
+                                            <div class="invalid-feedback">请输入合法的数量!</div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="mb-4">
+                                    <button class="btn btn-primary btn-lg btn-block"
+                                            type="submit">确认添加
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+</div>
+
+
+
+
+<!-- 底部页脚Footer -->
+<footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+        文物管理系统 Museum-Manage-System
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2020-2025 软件工程3组.</strong> All rights reserved.
+
+    <!-- jQuery -->
+    <script src="../../static/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/bootstrap4/js/bootstrap.min.js"></script>
+
+    <!-- AdminLTE App -->
+    <script src="../../static/dist/js/adminlte.min.js"></script>
+    <!--  <script src="../static/dist/js/common.js"></script>-->
+
+</footer>
+
+
+</div>
+
+
+<script>
+    $(function () {
+        checkForm();
+    })
+    // 表单输入框数据校验
+    function checkForm() {
+        $("#wareHouseAddForm").submit(function (event) {
+            const f = $(this)  //获取当前对象
+            if (f[0].checkValidity() === false) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            f.addClass("was-validated")
+        })
+    }
+</script>
+
+
+</body>
+
+</html>

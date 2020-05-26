@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout::head"></head>
+<body class="hold-transition  sidebar-mini bg-black ">
+<div class="wrapper">
+    <!-- 顶部导航栏 Navbar -->
+    <nav th:replace="fragments/layout::topNav"></nav>
+    <!-- 侧边导航栏 Main Sidebar Container -->
+    <aside th:replace="fragments/layout::leftAside"></aside>
+
+
+
+    <!--页面内容 Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="text-dark">文物拍照</h1>
+                    </div>
+                    <!--   面包屑-->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">文物拍照</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div style="width: 45%;height: 80px;float: left;margin-left: 150px;margin-bottom: 20px">
+
+            <input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;"/><p></p>
+            <button id="snap" onclick="takePhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;">拍照</button><p></p>
+        </div>
+        <div style="width: 200px;height: 80px;float: left;margin-left: 150px;margin-bottom: 20px">
+            <a th:href="@{/takePhoto}"><button id="ok" onclick="okPhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;">确认</button><p></p></a>
+            <a th:href="@{/takePhoto}"><button id="quit" onclick="quitPhoto()" style="color: #fff;background: #FF3333;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;">返回</button><p></p></a>
+
+        </div>
+
+        <div style="width: 500px;height: 50%;float: left;margin-left: 100px;">
+            <video id="video" width="500px" height="500px" autoplay="autoplay"></video>
+        </div>
+
+        <div style="width: 500px;height: 50%;float: left;margin-left: 100px;">
+            <canvas id="canvas" width="500px" height="500px" ></canvas>
+        </div>
+
+
+
+
+
+
+    </div>
+
+    <!-- 底部页脚Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="float-right d-none d-sm-inline">
+            文物管理系统 Museum-Manage-System
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2020-2025 软件工程3组.</strong> All rights reserved.
+
+        <!-- jQuery -->
+        <script src="../../static/plugins/jquery/jquery.min.js"></script>
+        <!-- Bootstrap 4 -->
+        <script src="../../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../../static/bootstrap4/js/bootstrap.min.js"></script>
+
+        <!-- AdminLTE App -->
+        <script src="../../static/dist/js/adminlte.min.js"></script>
+        <!--  <script src="../static/dist/js/common.js"></script>-->
+
+    </footer>
+
+</div>
+
+
+</body>
+
+<script>
+    //获得video摄像头区域
+    let video = document.getElementById("video");
+    function getMedia() {
+        let constraints = {
+            video: {width: 500, height: 500},
+            audio: true
+        };
+        /*
+        这里介绍新的方法:H5新媒体接口 navigator.mediaDevices.getUserMedia()
+        这个方法会提示用户是否允许媒体输入,(媒体输入主要包括相机,视频采集设备,屏幕共享服务,麦克风,A/D转换器等)
+        返回的是一个Promise对象。
+        如果用户同意使用权限,则会将 MediaStream对象作为resolve()的参数传给then()
+        如果用户拒绝使用权限,或者请求的媒体资源不可用,则会将 PermissionDeniedError作为reject()的参数传给catch()
+        */
+        let promise = navigator.mediaDevices.getUserMedia(constraints);
+        promise.then(function (MediaStream) {
+            video.srcObject = MediaStream;
+            video.play();
+        }).catch(function (PermissionDeniedError) {
+            console.log(PermissionDeniedError);
+        })
+    }
+    function takePhoto() {
+        //获得Canvas对象
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, 500, 500);
+
+        var image = canvas.toDataURL("image/png");
+        //新窗口
+        //var w=window.open('文物图片','image from canvas');
+        //在新窗口打开文物照片
+        //w.document.write("<img src='"+image+"' alt='from canvas'/>");
+    }
+
+    //确认照片并返回到文物拍照界面
+    function okPhoto() {
+        var image = canvas.toDataURL("image/png");
+        localStorage.name = image;
+        // location.href = "takePhoto.html";
+    }
+
+    // //返回文物拍照界面
+    // function quitPhoto() {
+    //     location.href = "takePhoto.html";
+    // }
+
+    function error(error) {
+        console.log("访问用户媒体设备失败${error.name}, ${error.message}");
+    }
+</script>
+
+
+
+</body>
+
+</html>
