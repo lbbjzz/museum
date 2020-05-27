@@ -37,15 +37,23 @@ public class culturalRelicController {
     @Resource
     CulturalMapper culturalMapper;
 
-    //显示第一页面文物
+    //单页显示文物
     @GetMapping("/culturalInfo")
     public String listCultural(Model model) {
+        List<Cultural_relic> cultural_relics=culturalMapper.findAll();
+        model.addAttribute("cultural", cultural_relics);
+        return "pages/CulturalRelicsInfo";
+    }
+
+    @GetMapping("/findFirstPage")
+    public String findtoPage(Model model,Integer i) {
         List<Cultural_relic> cultural = culturalMapper.FindtoPage(0);
         List<Cultural_relic> cultural_relics=culturalMapper.findAll();
         model.addAttribute("cultural", cultural);
         model.addAttribute("num", cultural_relics.size());
         return "pages/CulturalRelicsInfo";
     }
+
     @GetMapping("/findtoPage")
     public String FindtoPage(Model model,Integer i) {
         List<Cultural_relic> cultural = culturalMapper.FindtoPage(i);
@@ -54,6 +62,7 @@ public class culturalRelicController {
         model.addAttribute("num", cultural_relics.size());
         return "pages/CulturalRelicsInfo";
     }
+
     //文物详情
     @GetMapping("/details/{id}")
     public String detail(@PathVariable Long id, Model model) {

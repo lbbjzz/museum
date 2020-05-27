@@ -12,10 +12,13 @@ import java.util.List;
 
 @Mapper
 public interface CulturalMapper {
+
     @Select("SELECT * FROM cultural_relic")
     List<Cultural_relic> findAll();
+
     @Select("SELECT * FROM cultural_relic LIMIT #{i},5")
     List<Cultural_relic> FindtoPage(Integer i);
+
     @Delete("DELETE FROM cultural_relic WHERE id=#{id}")
     int delete(Long id);
 

@@ -44,7 +44,6 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <!-- TODO:搜索框 ，如果不需要这个功能可以删除-->
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 200px;margin-top: 1px;">
                                         <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="搜索">
@@ -92,11 +91,16 @@
                                 </div>
                                 <div style="display: inline-block;">
                                     <button onclick="javascript:ButtonOnclick();" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-export-execl">
-                                        <i class="fa fa-file-excel"></i>导出Execl</button>
+                                        <i class="fa fa-file-excel"></i>&nbsp;导出Execl</button>
+                                    <button onclick="paginationDisplay();" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-export-execl"><a th:href="@{/culturalInfo}">单页显示</a></button>
                                     <script>
                                         function ButtonOnclick()
                                         {
                                             window.location.href="/export.xls";
+                                        }
+                                        //分页隐藏 * 未生效
+                                        function paginationDisplay() {
+                                            document.getElementById('pagination').style.display='none';
                                         }
                                     </script>
                                 </div>
@@ -148,7 +152,6 @@
                                                 <i class="fa fa-eye"></i>
                                                 详细
                                             </a>
-                                            <!-- TODO:href为通过id获取用户信息(格式:/../../id),用于填充到编辑框 -->
                                             <a th:href="'/edit/' + ${item.id}"
                                                class="btn btn-secondary btn-xs toggle-edit-modal-btn">
                                                 <i class="fa fa-edit" aria-hidden="true"></i>
@@ -163,7 +166,7 @@
                                 </table>
                             </div>
                             <!-- 分页 -->
-                            <div class="card-footer clearfix">
+                            <div class="card-footer clearfix" id="pagination" style="display: block;">
                                 <ul class="pagination pagination-sm m-0 float-right">
                                     <li class="page-item" id="last"><a class="page-link" onclick="last()">&laquo;</a></li>
                                     <li class="page-item" id="now">
