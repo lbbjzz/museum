@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Calendar;
 import java.util.List;
 //用户管理类控制器
 
@@ -31,7 +32,8 @@ public class StaffController {
 
     //登录
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.GET})
-    public String login() {
+    public String login(Model model) {
+        model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         return "/login";
     }
 
