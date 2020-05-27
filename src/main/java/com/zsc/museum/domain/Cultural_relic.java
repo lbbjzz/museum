@@ -10,9 +10,10 @@ public class Cultural_relic {
     Long number;            //数量
     String material;        //材质
     String age;             //年代
-    String title;     //年号
+    String title;           //年号
     String source;          //来源
     String size;            //尺寸
+    Long values;            //价值
 
     public Long getId() {
         return id;
@@ -78,6 +79,14 @@ public class Cultural_relic {
         this.size = size;
     }
 
+    public Long getValues() {
+        return values;
+    }
+
+    public void setValues(Long values) {
+        this.values = values;
+    }
+
     @Override
     public String toString() {
         return "Cultural_relic{" +
@@ -89,6 +98,7 @@ public class Cultural_relic {
                 ", title='" + title + '\'' +
                 ", source='" + source + '\'' +
                 ", size='" + size + '\'' +
+                ", values=" + values +
                 '}';
     }
 }

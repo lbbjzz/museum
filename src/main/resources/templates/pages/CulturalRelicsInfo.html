@@ -121,7 +121,7 @@
                                         <th>年号</th>
                                         <th>录入日期</th>
                                         <th>图片</th>
-                                        <th>状态</th>
+                                        <th>价值</th>
                                         <th style="width: 150px;">操作</th>
                                     </tr>
                                     </thead>
@@ -143,8 +143,8 @@
                                                      style="width: auto;height: 60px;" alt="文物图片">
                                             </a>
                                         </td>
-                                        <td>
-                                            <span class="badge badge-danger my-badge">修复</span>
+                                        <td th:text="${item.values}">
+<!--                                            <span class="badge badge-danger my-badge">修复</span>-->
                                         </td>
                                         <td>
                                             <a th:href="'/details/' + ${item.id}"
