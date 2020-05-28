@@ -5,32 +5,17 @@ import com.zsc.museum.mapper.CulturalMapper;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.lang.reflect.Method;
-import java.net.URLDecoder;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @Controller
 public class culturalRelicController {
@@ -63,6 +48,12 @@ public class culturalRelicController {
         return "pages/CulturalRelicsInfo";
     }
 
+    //文物在馆情况
+    @GetMapping("/exits")
+    public String CulturalExits() {
+        return "pages/CulturalRelicsExits";
+    }
+
     //文物详情
     @GetMapping("/details/{id}")
     public String detail(@PathVariable Long id, Model model) {
@@ -78,6 +69,7 @@ public class culturalRelicController {
         model.addAttribute("cultural_relic", cultural_relic);
         return "pages/CulturalRelicsEdit";
     }
+
 
     //更新文物
     @PostMapping("/update")
