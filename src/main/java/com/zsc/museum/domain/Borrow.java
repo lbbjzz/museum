@@ -5,22 +5,31 @@ package com.zsc.museum.domain;
 */
 
 public class Borrow {
-    Long cultural_relic_id; //文物编号
-    String to_who;          //外借名称
+    Long culturalRelicId; //文物编号
+    String toWho;           //外借名称
+    String borrowTime;      //借出时间
 
-    public Long getCultural_relic_id() {
-        return cultural_relic_id;
+    public Long getCulturalRelicId() {
+        return culturalRelicId;
     }
 
-    public void setCultural_relic_id(Long cultural_relic_id) {
-        this.cultural_relic_id = cultural_relic_id;
+    public void setCulturalRelicId(Long culturalRelicId) {
+        this.culturalRelicId = culturalRelicId;
     }
 
-    public String getTo_who() {
-        return to_who;
+    public String getToWho() {
+        return toWho;
     }
 
-    public void setTo_who(String to_who) {
-        this.to_who = to_who;
+    public void setToWho(String toWho) {
+        this.toWho = toWho;
+    }
+
+    public String getBorrowTime() {
+        return borrowTime;
+    }
+
+    public void setBorrowTime(String borrowTime) {
+        this.borrowTime = borrowTime;
     }
 }

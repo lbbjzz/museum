@@ -10,12 +10,11 @@
     <title>文物管理系统</title>
     <!--  icon-->
     <link rel="icon"  th:href="@{/images/favicon.ico}" type="image/ico" />
-
     <link rel="stylesheet" th:href="@{/bootstrap4/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.css}"/>
     <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+    <link rel="stylesheet" th:href="@{/bootstrap4/assets/css/toastr.min.css}">
 </head>
 
 <body class="hold-transition  sidebar-mini bg-black ">
@@ -107,7 +106,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a th:href="@{/exits}" class="nav-link">
+                    <a th:href="@{/toBorrow}" class="nav-link">
                         <i class="nav-icon fas fa-book"></i>
                         <p>文物在馆信息</p>
                     </a>
@@ -165,7 +164,12 @@
     <script th:src="@{/dist/js/adminlte.min.js}"
             src="../../static/dist/js/adminlte.min.js"></script>
     <!--  <script src="../static/dist/js/common.js"></script>-->
-
+    <script th:src="@{/bootstrap4/assets/js/toastr.min.js}"></script>
+    <script>
+        var opResult = getQueryVariable("result");
+        if (opResult == '1')
+            toastr.success("操作成功")
+    </script>
 </footer>
 
 </body>

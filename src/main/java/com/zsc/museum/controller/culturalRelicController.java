@@ -48,12 +48,6 @@ public class culturalRelicController {
         return "pages/CulturalRelicsInfo";
     }
 
-    //文物在馆情况
-    @GetMapping("/exits")
-    public String CulturalExits() {
-        return "pages/CulturalRelicsExits";
-    }
-
     //文物详情
     @GetMapping("/details/{id}")
     public String detail(@PathVariable Long id, Model model) {

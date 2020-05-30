@@ -66,11 +66,11 @@
                                        id="userTable">
                                     <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>账号</th>
+                                        <th>序号</th>
                                         <th>用户名</th>
-                                        <th>密码</th>
                                         <th>职务</th>
+                                        <th>账号</th>
+                                        <th>密码</th>
                                         <th style="width: 240px;">操作</th>
                                     </tr>
                                     </thead>
@@ -78,10 +78,10 @@
                                     <!-- TODO:修改真实数据 -->
                                     <tr>
                                         <td>1</td>
+                                        <td>梁老师</td>
+                                        <td>馆长</td>
                                         <td>1000</td>
-                                        <td>小王</td>
-                                        <td>1008611</td>
-                                        <td>文职人员</td>
+                                        <td>123</td>
                                         <td>
                                             <!-- TODO:href为通过id获取用户信息(格式:/../../id),用于填充到编辑框 -->
                                             <a href="./employeesEdit.html"
@@ -117,10 +117,9 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
+        <!-- 底部页脚Footer -->
+        <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
     </div>
-
-    <!-- 底部页脚Footer -->
-    <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
 </div>
 </body>
 </html>

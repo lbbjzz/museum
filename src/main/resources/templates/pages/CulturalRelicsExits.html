@@ -3,120 +3,114 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/layout::head"></head>
 <body class="hold-transition  sidebar-mini bg-black ">
-<div class="wrapper">
-    <!-- 顶部导航栏 Navbar -->
-    <nav th:replace="fragments/layout::topNav"></nav>
-    <!-- 侧边导航栏 Main Sidebar Container -->
-    <aside th:replace="fragments/layout::leftAside"></aside>
+    <div class="wrapper">
+        <!-- 顶部导航栏 Navbar -->
+        <nav th:replace="fragments/layout::topNav"></nav>
+        <!-- 侧边导航栏 Main Sidebar Container -->
+        <aside th:replace="fragments/layout::leftAside"></aside>
 
+        <!--页面内容 Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
 
-    <!--页面内容 Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
+            </div>
+            <!-- 页面主要内容Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <!-- 内容 -->
+                    <!-- 表格 -->
 
-        </div>
-        <!-- 页面主要内容Main content -->
-        <div class="content">
-            <div class="container-fluid">
-                <!-- 内容 -->
-                <!-- 表格 -->
+                    <div class="row" style="color: black;">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header" style="padding: 8px"> 文物在馆情况
+                                    <a class="btn btn-primary btn-sm float-right" th:href="@{/culturalInfo}"> <i
+                                            class="fa fa-list"></i> 返回文物列表</a>
+                                </div>
 
-                <div class="row" style="color: black;">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header" style="padding: 8px"> 文物在馆情况
-                                <a class="btn btn-primary btn-sm float-right" th:href="@{/culturalInfo}"> <i
-                                        class="fa fa-list"></i> 返回文物列表</a>
-                            </div>
+                                <div class="card-body">
 
-                            <div class="card-body">
+                                    <form class="needs-validation" action="" novalidate id="CulturalReclisExitsForm" th:action="@{/createBorrow}" method="post">
 
-                                <form class="needs-validation" action="" novalidate id="CulturalReclisExitsForm" >
-
-                                    <div class="form-group row" style="margin-top: 10px">
-                                        <label for="id" class="col-md-2  col-form-label">文物编号 <span class="text-danger">(*)</span></label>
-                                        <div class="col-md-10">
-                                        <input type="text" class="form-control" id="id"  th:name="id" required ="required">
-                                            <div class="invalid-feedback">文物编号不能为空!</div>
+                                        <div class="form-group row" style="margin-top: 10px">
+                                            <label for="culturalRelicId" class="col-md-2  col-form-label">文物编号 <span class="text-danger">(*)</span></label>
+                                            <div class="col-md-10">
+                                            <input type="text" class="form-control" id="culturalRelicId"  th:name="culturalRelicId" required ="required">
+                                                <div class="invalid-feedback">文物编号不能为空!</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row" style="margin-top: 10px">
-                                        <label for="Exits"  class="col-md-2  col-form-label">在馆情况</label>
-                                        <div class="col-md-10">
-                                            <input type="text" class="form-control"  id="Exits" th:name="Exits" required ="required">
-                                            <div class="invalid-feedback">在馆情况不允许为空!</div>
+                                        <div class="form-group row" style="margin-top: 10px">
+                                            <label for="toWho"  class="col-md-2  col-form-label">借出单位</label>
+                                            <div class="col-md-10">
+                                                <input type="text" class="form-control"  id="toWho" th:name="toWho" required ="required">
+                                                <div class="invalid-feedback">在馆情况不允许为空!</div>
+                                            </div>
                                         </div>
+
+
+                                        <hr class="mb-4">
+                                        <button class="btn btn-primary btn-lg btn-block"
+                                                type="submit">提交
+                                        </button>
+                                    </form>
+                                    <div class="card-body table-responsive p-0" style="height: 300px;margin-top: 20px;">
+                                        <table class="table table-head-fixed text-nowrap table-bordered table-hover table-striped my-table"
+                                               id="inTable" style="">
+                                            <thead>
+                                                <th>已借出</th>
+                                                <tr>
+                                                    <th>文物编号</th>
+                                                    <th>借出单位</th>
+                                                    <th>借出时间</th>
+                                                    <th style="width: 150px; padding-left: 55px">操作</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tr th:each="item,bbb: ${borrows}">
+                                                <td th:text="${item.culturalRelicId}"></td>
+                                                <td th:text="${item.toWho}"></td>
+                                                <td th:text="${item.borrowTime}"></td>
+                                                <td>
+                                                    <a th:href="'/borrowDelete/'+${item.culturalRelicId}"
+                                                          class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;">
+                                                        <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                                        归还</a>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
 
-
-                                    <hr class="mb-4">
-                                    <button class="btn btn-primary btn-lg btn-block"
-                                            type="submit">提交
-                                    </button>
-                                </form>
-                                <div class="row">
-                                    <table class="table table-head-fixed text-nowrap table-bordered table-hover table-striped my-table"
-                                           id="inTable" style="margin-top: 20px">
-                                        <thead>
-                                        <th>已借出</th>
-                                        </thead>
-                                        <tr>
-                                            <th>序号</th>
-                                            <th>借出单位</th>
-                                            <th>借出时间</th>
-                                            <th style="width: 150px; padding-left: 55px">操作</th>
-                                        </tr>
-
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <a class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px">
-                                                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                                                    删除</a>
-                                            </td>
-                                        </tr>
-                                    </table>
                                 </div>
 
                             </div>
-
                         </div>
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card -->
                 </div>
-            </div>
 
-        </div><!-- /.container-fluid -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+        <!-- 底部页脚Footer -->
+        <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
     </div>
-    <!-- /.content -->
-</div>
-
-<!-- 底部页脚Footer -->
-<footer class="main-footer" th:replace="fragments/layout::footer"></footer>
-</div>
-
-
-<script>
-    $(function () {
-        checkForm();
-    })
-    // 表单输入框数据校验
-    function checkForm() {
-        $("#CulturalReclisExitsForm").submit(function (event) {
-            const f = $(this)  //获取当前对象
-            if (f[0].checkValidity() === false) {
-                event.preventDefault()
-                event.stopPropagation()
-            }
-            f.addClass("was-validated")
+    <script>
+        $(function () {
+            checkForm();
         })
-    }
-</script>
-
-
+        // 表单输入框数据校验
+        function checkForm() {
+            $("#CulturalReclisExitsForm").submit(function (event) {
+                const f = $(this)  //获取当前对象
+                if (f[0].checkValidity() === false) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                f.addClass("was-validated")
+            })
+        }
+    </script>
 </body>
 
 </html>
