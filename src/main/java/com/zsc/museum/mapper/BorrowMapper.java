@@ -23,4 +23,7 @@ public interface BorrowMapper {
 
     @Select("SELECT * FROM borrow WHERE borrowId=#{borrowId}")
     Borrow selectOne(Long id);
+
+    @Select("SELECT * FROM borrow WHERE culturalRelicId LIKE CONCAT('%',#{culturalRelicId},'%')")
+    List<Borrow> SelectByCulturalRelicId(String culturalRelicId);
 }

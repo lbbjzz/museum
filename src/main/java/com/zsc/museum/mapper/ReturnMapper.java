@@ -19,4 +19,7 @@ public interface ReturnMapper {
     @Insert("INSERT INTO returnForm(culturalRelicId,forWho,returnTime,borrowTime)"+
             "values (#{culturalRelicId},#{forWho},#{returnTime},#{borrowTime})")
     int Insert(Return return1);
+
+    @Select("SELECT * FROM returnForm WHERE culturalRelicId LIKE CONCAT('%',#{culturalRelicId},'%')")
+    List<Return> SelectByCulturalRelicId(String culturalRelicId);
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -99,5 +100,14 @@ public class borrowController {
         returnMapper.Insert(return1);
         borrowMapper.borrowDelete(borrowId);
         return "redirect:/borrowDetails";
+    }
+
+    //通过文物ID模糊查找
+    @GetMapping("/selectByCulturalRelicId")
+    public String SelectByBorrowId(Model model, HttpServletRequest request) {
+        String culturalRelicId = request.getParameter("culturalRelicId");
+        List<Borrow> details = borrowMapper.SelectByCulturalRelicId(culturalRelicId);
+        model.addAttribute("details", details);
+        return "pages/BorrowInfo";
     }
 }
