@@ -74,9 +74,30 @@ public class borrowController {
 
         return1.setCulturalRelicId(id);
         return1.setForWho(forWho);
-        return1.setReturnTime(borrowTime);
+        return1.setBorrowTime(borrowTime);
         returnMapper.Insert(return1);
         borrowMapper.borrowDelete(culturalRelicId);
         return "redirect:/toBorrow/{culturalRelicId}?result=1";
+    }
+
+    @GetMapping("/borrowDeleteInPage/{culturalRelicId}")
+    public String borrowDeleteInPage(@PathVariable Long culturalRelicId) {
+        Return return1 = new Return();
+        Borrow borrow = borrowMapper.selectOne(culturalRelicId);
+        Long id = borrow.getCulturalRelicId();
+        String forWho = borrow.getToWho();
+        String borrowTime = borrow.getBorrowTime();
+
+        Date time = new Date();
+        DateFormat returnFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String returnTime = returnFormat.format(time);
+        return1.setReturnTime(returnTime);
+
+        return1.setCulturalRelicId(id);
+        return1.setForWho(forWho);
+        return1.setBorrowTime(borrowTime);
+        returnMapper.Insert(return1);
+        borrowMapper.borrowDelete(culturalRelicId);
+        return "redirect:/borrowDetails";
     }
 }
