@@ -10,13 +10,13 @@ import java.util.List;
 
 @Mapper
 public interface ReturnMapper {
-    @Select("SELECT * FROM return")
+    @Select("SELECT * FROM returnForm")
     List<Return> findAll();
 
-    @Delete("DELETE FROM return WHERE culturalRelicId=#{culturalRelicId}")
+    @Delete("DELETE FROM returnForm WHERE culturalRelicId=#{culturalRelicId}")
     int returnDelete(Long culturalRelicId);
 
-    @Insert("INSERT INTO return(culturalRelicId,forWho,returnTime)"+
-            "values (#{culturalRelicId},#{forWho},#{returnTime})")
+    @Insert("INSERT INTO returnForm(culturalRelicId,forWho,returnTime,borrowTime)"+
+            "values (#{culturalRelicId},#{forWho},#{returnTime},#{borrowTime})")
     int Insert(Return return1);
 }

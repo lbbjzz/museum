@@ -18,8 +18,8 @@ public class returnController {
 
     @GetMapping("/returnDetails")
     public String returnDetails(Model model){
-        List<Return> details=returnMapper.findAll();
-        model.addAttribute("details", details);
+        List<Return> Rdetails=returnMapper.findAll();
+        model.addAttribute("Rdetails", Rdetails);
         return "pages/ReturnInfo";
     }
 

@@ -7,6 +7,7 @@ package com.zsc.museum.domain;
 public class Return {
     Long culturalRelicId; //文物编号
     String forWho;           //归还单位
+    String borrowTime;         //借出时间
     String returnTime;      //归还时间
 
     public Long getCulturalRelicId() {
@@ -23,6 +24,14 @@ public class Return {
 
     public void setForWho(String forWho) {
         this.forWho = forWho;
+    }
+
+    public String getBorrowTime() {
+        return borrowTime;
+    }
+
+    public void setBorrowTime(String borrowTime) {
+        this.borrowTime = borrowTime;
     }
 
     public String getReturnTime() {
