@@ -59,10 +59,10 @@ public class borrowController {
     }
 
     //删除操作
-    @GetMapping("/borrowDelete/{culturalRelicId}")
-    public String borrowDelete(@PathVariable Long culturalRelicId) {
+    @GetMapping("/borrowDelete/{borrowId}")
+    public String borrowDelete(@PathVariable Long borrowId) {
         Return return1 = new Return();
-        Borrow borrow = borrowMapper.selectOne(culturalRelicId);
+        Borrow borrow = borrowMapper.selectOne(borrowId);
         Long id = borrow.getCulturalRelicId();
         String forWho = borrow.getToWho();
         String borrowTime = borrow.getBorrowTime();
@@ -76,14 +76,14 @@ public class borrowController {
         return1.setForWho(forWho);
         return1.setBorrowTime(borrowTime);
         returnMapper.Insert(return1);
-        borrowMapper.borrowDelete(culturalRelicId);
-        return "redirect:/toBorrow/{culturalRelicId}?result=1";
+        borrowMapper.borrowDelete(borrowId);
+        return "redirect:/toBorrow/{borrowId}?result=1";
     }
 
-    @GetMapping("/borrowDeleteInPage/{culturalRelicId}")
-    public String borrowDeleteInPage(@PathVariable Long culturalRelicId) {
+    @GetMapping("/borrowDeleteInPage/{borrowId}")
+    public String borrowDeleteInPage(@PathVariable Long borrowId) {
         Return return1 = new Return();
-        Borrow borrow = borrowMapper.selectOne(culturalRelicId);
+        Borrow borrow = borrowMapper.selectOne(borrowId);
         Long id = borrow.getCulturalRelicId();
         String forWho = borrow.getToWho();
         String borrowTime = borrow.getBorrowTime();
@@ -97,7 +97,7 @@ public class borrowController {
         return1.setForWho(forWho);
         return1.setBorrowTime(borrowTime);
         returnMapper.Insert(return1);
-        borrowMapper.borrowDelete(culturalRelicId);
+        borrowMapper.borrowDelete(borrowId);
         return "redirect:/borrowDetails";
     }
 }

@@ -23,9 +23,9 @@ public class returnController {
         return "pages/ReturnInfo";
     }
 
-    @GetMapping("/returnDelete/{culturalRelicId}")
-    public String borrowDelete(@PathVariable Long culturalRelicId) {
-        returnMapper.returnDelete(culturalRelicId);
+    @GetMapping("/returnDelete/{returnId}")
+    public String borrowDelete(@PathVariable Long returnId) {
+        returnMapper.returnDelete(returnId);
         return "redirect:/returnDetails?result=1";
     }
 }

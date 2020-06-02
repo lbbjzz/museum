@@ -5,6 +5,7 @@ package com.zsc.museum.domain;
 */
 
 public class Return {
+    Long returnId;         //归还主键
     Long culturalRelicId; //文物编号
     String forWho;           //归还单位
     String borrowTime;         //借出时间
@@ -40,5 +41,13 @@ public class Return {
 
     public void setReturnTime(String returnTime) {
         this.returnTime = returnTime;
+    }
+
+    public Long getReturnId() {
+        return returnId;
+    }
+
+    public void setReturnId(Long returnId) {
+        this.returnId = returnId;
     }
 }

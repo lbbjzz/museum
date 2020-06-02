@@ -5,6 +5,7 @@ package com.zsc.museum.domain;
 */
 
 public class Borrow {
+    Long borrowId;        //外借主键
     Long culturalRelicId; //文物编号
     String toWho;           //外借名称
     String borrowTime;      //借出时间
@@ -31,5 +32,13 @@ public class Borrow {
 
     public void setBorrowTime(String borrowTime) {
         this.borrowTime = borrowTime;
+    }
+
+    public Long getBorrowId() {
+        return borrowId;
+    }
+
+    public void setBorrowId(Long borrowId) {
+        this.borrowId = borrowId;
     }
 }

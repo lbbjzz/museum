@@ -96,6 +96,7 @@
                                        id="infoTable">
                                     <thead>
                                         <tr>
+                                            <th>归还序号</th>
                                             <th>文物编号</th>
                                             <th>出借单位</th>
                                             <th>借出时间</th>
@@ -104,12 +105,13 @@
                                         </tr>
                                     </thead>
                                     <tr th:each="item,eee: ${Rdetails}">
+                                        <td th:text="${item.returnId}"></td>
                                         <td th:text="${item.culturalRelicId}"></td>
                                         <td th:text="${item.forWho}"></td>
                                         <td th:text="${item.borrowTime}"></td>
                                         <td th:text="${item.returnTime}"></td>
                                         <td>
-                                            <a th:href="'/returnDelete/'+${item.culturalRelicId}"
+                                            <a th:href="'/returnDelete/'+${item.returnId}"
                                                class="btn btn-danger btn-xs delete-confirm-btn">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>

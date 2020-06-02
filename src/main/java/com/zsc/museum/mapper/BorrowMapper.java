@@ -18,7 +18,7 @@ public interface BorrowMapper {
             "values (#{culturalRelicId},#{toWho},#{borrowTime})")
     int Insert(Borrow borrow);
 
-    @Delete("DELETE FROM borrow WHERE culturalRelicId=#{culturalRelicId}")
+    @Delete("DELETE FROM borrow WHERE borrowId=#{borrowId}")
     int borrowDelete(Long culturalRelicId);
 
     @Select("SELECT * FROM borrow WHERE borrowId=#{borrowId}")
