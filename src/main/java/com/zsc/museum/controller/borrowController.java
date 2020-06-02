@@ -2,8 +2,10 @@ package com.zsc.museum.controller;
 
 import com.zsc.museum.domain.Borrow;
 import com.zsc.museum.domain.Cultural_relic;
+import com.zsc.museum.domain.Return;
 import com.zsc.museum.mapper.BorrowMapper;
 import com.zsc.museum.mapper.CulturalMapper;
+import com.zsc.museum.mapper.ReturnMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,9 @@ public class borrowController {
 
     @Resource
     CulturalMapper culturalMapper;
+
+    @Resource
+    ReturnMapper returnMapper;
 
     @GetMapping("/borrowDetails")
     public String borrowDetails(Model model){
@@ -53,8 +58,24 @@ public class borrowController {
         return "redirect:/findFirstPage?result=1";
     }
 
+    //删除操作
     @GetMapping("/borrowDelete/{culturalRelicId}")
     public String borrowDelete(@PathVariable Long culturalRelicId) {
+        Return return1 = new Return();
+        Borrow borrow = borrowMapper.selectOne(culturalRelicId);
+        Long id = borrow.getCulturalRelicId();
+        String forWho = borrow.getToWho();
+        String borrowTime = borrow.getBorrowTime();
+
+        Date time = new Date();
+        DateFormat returnFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        String returnTime = returnFormat.format(time);
+        return1.setReturnTime(returnTime);
+
+        return1.setCulturalRelicId(id);
+        return1.setForWho(forWho);
+        return1.setReturnTime(borrowTime);
+        returnMapper.Insert(return1);
         borrowMapper.borrowDelete(culturalRelicId);
         return "redirect:/toBorrow/{culturalRelicId}?result=1";
     }

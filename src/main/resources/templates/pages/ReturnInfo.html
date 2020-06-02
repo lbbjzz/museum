@@ -29,7 +29,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">文物信息一览</li>
+                            <li class="breadcrumb-item active">归还详细一览</li>
                         </ol>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                                         <tr>
                                             <th>文物编号</th>
                                             <th>出借单位</th>
-                                            <th>借出时间</th>
+                                            <th>归还时间</th>
                                             <th style="width: 150px;">操作</th>
                                         </tr>
                                     </thead>
@@ -107,7 +107,7 @@
                                         <td th:text="${item.toWho}"></td>
                                         <td th:text="${item.borrowTime}"></td>
                                         <td>
-                                            <a th:href="'/delete/' + ${item.id}"
+                                            <a th:href="'/returnDelete/'+${item.culturalRelicId}"
                                                class="btn btn-danger btn-xs delete-confirm-btn">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>
