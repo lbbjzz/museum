@@ -9,12 +9,21 @@ public class Cultural_relic {
     String name;            //文物名称
     Long number;            //数量
     String material;        //材质
+
+    public String getWareHouse() {
+        return wareHouse;
+    }
+
+    public void setWareHouse(String wareHouse) {
+        this.wareHouse = wareHouse;
+    }
+
     String age;             //年代
     String title;           //年号
     String source;          //来源
     String size;            //尺寸
     Long values;            //价值
-
+    String wareHouse;       //所在仓库
     public Long getId() {
         return id;
     }
@@ -99,6 +108,7 @@ public class Cultural_relic {
                 ", source='" + source + '\'' +
                 ", size='" + size + '\'' +
                 ", values=" + values +
+                ", wareHouse='" + wareHouse + '\'' +
                 '}';
     }
 }

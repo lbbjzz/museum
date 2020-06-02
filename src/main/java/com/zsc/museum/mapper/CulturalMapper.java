@@ -28,12 +28,12 @@ public interface CulturalMapper {
     @Select("SELECT * FROM cultural_relic WHERE name LIKE CONCAT('%',#{name},'%')")
     List<Cultural_relic> SelectByName(String name);
 
-    @Insert("INSERT INTO cultural_relic(id,name,number,title,material,age,source,size)"+
-    "values (#{id},#{name},#{number},#{title},#{material},#{age},#{source},#{size})")
+    @Insert("INSERT INTO cultural_relic(id,name,number,wareHouse,material,age,source,size)"+
+    "values (#{id},#{name},#{number},#{wareHouse},#{material},#{age},#{source},#{size})")
     int Insert(Cultural_relic cultural_relic);
 
     @Update("UPDATE cultural_relic SET name=#{name}, number=#{number},material=#{material}," +
-            "age=#{age},title=#{title},source=#{source},size=#{size} " +
+            "age=#{age},wareHouse=#{wareHouse},source=#{source},size=#{size} " +
             "WHERE id=#{id}")
     int update(Cultural_relic cultural_relic);
 
