@@ -13,7 +13,7 @@ public interface ReturnMapper {
     @Select("SELECT * FROM returnForm")
     List<Return> findAll();
 
-    @Delete("DELETE FROM returnForm WHERE culturalRelicId=#{culturalRelicId}")
+    @Delete("DELETE FROM returnForm WHERE returnId=#{returnId}")
     int returnDelete(Long culturalRelicId);
 
     @Insert("INSERT INTO returnForm(culturalRelicId,forWho,returnTime,borrowTime)"+

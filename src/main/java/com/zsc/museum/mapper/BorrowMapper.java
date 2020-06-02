@@ -21,6 +21,6 @@ public interface BorrowMapper {
     @Delete("DELETE FROM borrow WHERE culturalRelicId=#{culturalRelicId}")
     int borrowDelete(Long culturalRelicId);
 
-    @Select("SELECT * FROM borrow WHERE culturalRelicId=#{culturalRelicId}")
+    @Select("SELECT * FROM borrow WHERE borrowId=#{borrowId}")
     Borrow selectOne(Long id);
 }
