@@ -31,13 +31,13 @@
 
                                 <div class="card-body">
 
-                                    <form class="needs-validation" action="" novalidate id="CulturalReclisExitsForm" th:action="@{/createBorrow}" method="post">
+                                    <form class="needs-validation" novalidate id="CulturalReclisExitsForm" th:action="@{/createBorrow}" method="post">
 
                                         <div class="form-group row" style="margin-top: 10px">
                                             <label for="culturalRelicId" class="col-md-2  col-form-label">文物编号 <span class="text-danger">(*)</span></label>
                                             <div class="col-md-10">
-                                            <input type="text" class="form-control" id="culturalRelicId"  th:name="culturalRelicId" required ="required">
-                                                <div class="invalid-feedback">文物编号不能为空!</div>
+                                            <input type="text" class="form-control" id="culturalRelicId"  th:name="culturalRelicId" readonly="readonly"
+                                                   th:field="${cultural_relic.id}">
                                             </div>
                                         </div>
                                         <div class="form-group row" style="margin-top: 10px">
@@ -58,10 +58,15 @@
                                         <table class="table table-head-fixed text-nowrap table-bordered table-hover table-striped my-table"
                                                id="inTable" style="">
                                             <thead>
-                                                <th>已借出</th>
+                                                <th style="width: 200px;">已借出
+                                                    <a class="btn btn-primary btn-sm " style="margin-left: 5px;" th:href="@{/borrowDetails}">
+                                                        <i class="fa fa-server"></i> 出借详细表</a>
+                                                    <a class="btn btn-primary btn-sm " style="margin-left: 5px;" th:href="@{/returnDetails}">
+                                                        <i class="fa fa-server"></i> 归还详细表</a>
+                                                </th>
                                                 <tr>
                                                     <th>文物编号</th>
-                                                    <th>借出单位</th>
+                                                    <th>出借单位</th>
                                                     <th>借出时间</th>
                                                     <th style="width: 150px; padding-left: 55px">操作</th>
                                                 </tr>
