@@ -73,12 +73,12 @@
                                             </thead>
 
                                             <tr th:each="item,bbb: ${borrows}">
-                                                <td th:text="${item.culturalRelicId}"></td>
+                                                <td th:text="${item.borrowId}"></td>
                                                 <td th:text="${item.toWho}"></td>
                                                 <td th:text="${item.borrowTime}"></td>
                                                 <td>
-                                                    <a th:href="'/borrowDelete/'+${item.culturalRelicId}"
-                                                          class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;" >
+                                                    <a th:href="'/borrowDelete/'+${item.borrowId}"
+                                                          class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;" onclick=" return deleteConfirm()">
                                                         <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                         归还</a>
                                                 </td>
@@ -99,13 +99,8 @@
         <!-- /.content -->
         <!-- 底部页脚Footer -->
         <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
-
     </div>
     <script>
-
-
-
-
         $(function () {
             checkForm();
         })
