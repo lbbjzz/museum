@@ -6,8 +6,8 @@ package com.zsc.museum.domain;
 
 public class Warehouse {
     Long id;                //仓库编号
-    String warehouse_name;  //仓库名称
-    Long shelves_number;    //货架数量
+    String warehouseName;  //仓库名称
+    Long shelvesNumber;    //货架数量
 
     public Long getId() {
         return id;
@@ -17,19 +17,19 @@ public class Warehouse {
         this.id = id;
     }
 
-    public String getWarehouse_name() {
-        return warehouse_name;
+    public String getWarehouseName() {
+        return warehouseName;
     }
 
-    public void setWarehouse_name(String warehouse_name) {
-        this.warehouse_name = warehouse_name;
+    public void setWarehouseName(String warehouseName) {
+        this.warehouseName = warehouseName;
     }
 
-    public Long getShelves_number() {
-        return shelves_number;
+    public Long getShelvesNumber() {
+        return shelvesNumber;
     }
 
-    public void setShelves_number(Long shelves_number) {
-        this.shelves_number = shelves_number;
+    public void setShelvesNumber(Long shelvesNumber) {
+        this.shelvesNumber = shelvesNumber;
     }
 }

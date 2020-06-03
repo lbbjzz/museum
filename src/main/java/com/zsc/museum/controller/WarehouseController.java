@@ -19,35 +19,26 @@ import java.util.List;
 //仓库类控制器
 @Controller
 public class WarehouseController {
+
     @Resource
     WarehouseMapper warehouseMapper;
 
     //仓库显示
     @GetMapping("/wareHouse")
-    public String listwareHouse(Model model) {
-        List<Warehouse> warehouseList=warehouseMapper.findAll();
-        List<Warehouse> warehouse = warehouseMapper.FindtoPage(0);
-        model.addAttribute("wareHouse", warehouse);
-        model.addAttribute("num", warehouseList.size());
-        return "pages/wareHouse";
-    }
-    @GetMapping("/findtowarehousePage")
-    public String FindtoPage(Model model,Integer i) {
-        List<Warehouse> warehouse = warehouseMapper.FindtoPage(i);
-        List<Warehouse> warehouseList=warehouseMapper.findAll();
-        model.addAttribute("wareHouse", warehouse);
-        model.addAttribute("num", warehouseList.size());
+    public String listWarehouse(Model model) {
+        List<Warehouse> warehouse=warehouseMapper.findAll();
+        model.addAttribute("warehouse", warehouse);
         return "pages/wareHouse";
     }
 
     //仓库添加
-    @GetMapping("/AddwareHouse")
+    @GetMapping("/toAddWarehouse")
     public String wareHouseAdd() {
         return "pages/wareHouseAdd";
     }
 
-    @PostMapping("/AddwareHouse")
-    public String createwareHouse(Warehouse warehouse) {
+    @PostMapping("/addWarehouse")
+    public String createWarehouse(Warehouse warehouse) {
         warehouseMapper.Insert(warehouse);
         return "redirect:/wareHouse";
     }
@@ -55,28 +46,31 @@ public class WarehouseController {
 
     //编辑仓库
     @GetMapping("/wareHouseEdit/{id}")
-    public String towareHouseEdit(@PathVariable Long id, Model model) {
+    public String toWarehouseEdit(@PathVariable Long id, Model model) {
         Warehouse warehouse = warehouseMapper.SelectOne(id);
         model.addAttribute("warehouse", warehouse);
         return "pages/wareHouseEdit";
     }
-    @PostMapping("/updatewareHouse")
+
+    @PostMapping("/updateWareHouse")
     public String wareHouseEdit(Warehouse warehouse) {
         warehouseMapper.update(warehouse);
         return "redirect:/wareHouse";
     }
+
     //删除仓库
-    @GetMapping("/deletewareHouse/{id}")
+    @GetMapping("/deleteWareHouse/{id}")
     public String delete(@PathVariable Long id) {
         warehouseMapper.delete(id);
         //重定向到list URL
         return "redirect:/wareHouse";
     }
+
     //通过名字模糊查找
-    @GetMapping("/selectbywarehousename")
+    @GetMapping("/selectByWareHouseName")
     public String SelectByName(Model model, HttpServletRequest request) {
-        String warehouse_name = request.getParameter("warehouse_name");
-        List<Warehouse> warehouse = warehouseMapper.SelectByName(warehouse_name);
+        String warehouseName = request.getParameter("warehouseName");
+        List<Warehouse> warehouse = warehouseMapper.SelectByName(warehouseName);
         model.addAttribute("warehouse", warehouse);
         return "pages/wareHouse";
     }
