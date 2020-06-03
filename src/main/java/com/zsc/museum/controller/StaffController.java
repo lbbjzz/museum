@@ -99,7 +99,7 @@ public class StaffController {
             return "pages/employeesAdd";
         }
 
-    @PostMapping("/AddStaff")
+    @PostMapping("/createStaff")
     public String createStaff(Staff staff) {
         staffMapperMapper.Insert(staff);
         return "redirect:/employees";
@@ -107,23 +107,20 @@ public class StaffController {
 
     //删除用户
 
-    @GetMapping("/deletestaff/{id}")
+    @GetMapping("/deleteemployee/{id}")
     public String delete(@PathVariable Long id) {
         staffMapperMapper.delete(id);
         //重定向到list URL
         return "redirect:/employees";
     }
 
-
-    //编辑用户
-
-    @GetMapping("/employeesEdit/{id}")
+    @GetMapping("/editemployee/{id}")
     public String toemployeesEdit(@PathVariable Long id, Model model) {
         Staff staff = staffMapperMapper.SelectOne(id);
         model.addAttribute("Staff", staff);
         return "pages/employeesEdit";
     }
-    @PostMapping("/updateemployees")
+    @PostMapping("/updateemployee")
     public String employeesEdit(Staff staff) {
         staffMapperMapper.update(staff);
         return "redirect:/employees";

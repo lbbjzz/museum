@@ -76,20 +76,20 @@
                                     </thead>
                                     <tbody>
                                     <!-- TODO:修改真实数据 -->
-                                    <tr>
-                                        <td>1</td>
-                                        <td>梁老师</td>
-                                        <td>馆长</td>
-                                        <td>1000</td>
-                                        <td>123</td>
+                                    <tr th:each="item,eee: ${Staff}">
+                                        <td th:text="${item.id}"></td>
+                                        <td th:text="${item.name}"></td>
+                                        <td th:text="${item.officer}"></td>
+                                        <td th:text="${item.number}"></td>
+                                        <td th:text="${item.password}"></td>
                                         <td>
                                             <!-- TODO:href为通过id获取用户信息(格式:/../../id),用于填充到编辑框 -->
-                                            <a href="./employeesEdit.html"
+                                            <a th:href="'/editemployee/' + ${item.id}"
                                                class="btn btn-secondary btn-sm toggle-edit-modal-btn">
                                                 <i class="fa fa-edit" aria-hidden="true"></i>
                                                 编辑</a>
                                             <!-- TODO:href为删除用户的接口,(格式:/../../id),删除成功需要返回?result=1,用于提示用户操作成功 -->
-                                            <a href="./profile.html?result=1" class="btn btn-danger btn-sm delete-confirm-btn"  onclick=" return deleteConfirm()">
+                                            <a th:href="'/deleteemployee/' + ${item.id}" class="btn btn-danger btn-sm delete-confirm-btn">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>
                                         </td>

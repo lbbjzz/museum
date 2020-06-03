@@ -28,11 +28,11 @@ public interface StaffMapper {
     @Select("SELECT * FROM staff WHERE name LIKE CONCAT('%',#{name},'%')")
     List<Staff> SelectByName(String name);
 
-    @Insert("INSERT INTO staff(id,name,officer)"+
-            "values (#{id},#{name},#{officer},)")
+    @Insert("INSERT INTO staff(name,officer,number,password)"+
+            "values (#{name},#{officer},#{number},#{password})")
     int Insert(Staff staff);
 
-    @Update("UPDATE staff SET id=#{id}, name=#{name},officer=#{officer}," +
+    @Update("UPDATE staff SET name=#{name},officer=#{officer},number=#{number},password=#{password} " +
             "WHERE id=#{id}")
     int update(Staff staff);
 
