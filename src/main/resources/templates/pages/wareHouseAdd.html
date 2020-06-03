@@ -28,33 +28,23 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header" style="padding: 8px"> <i class="fa fa-fw fa-edit"></i>添加仓库
-                                <a class="btn btn-primary btn-sm float-right"  href="./wareHouse.html"> <i
+                                <a class="btn btn-primary btn-sm float-right" th:href="@{/wareHouse}"> <i
                                         class="fa fa-list"></i> 返回列表</a>
                             </div>
                             <div class="card-body">
-                                <form class="needs-validation" action="" novalidate id="wareHouseAddForm" >
-
-
+                                <form class="needs-validation" th:action="@{/addWarehouse}" method="post" novalidate id="wareHouseAddForm" >
                                     <div class="form-group row">
-                                        <label for="wareName"  class="col-md-2  col-form-label">仓库名称</label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" id="wareName"  required="required">
+                                            <label for="warehouseName"  class="col-md-2  col-form-label">仓库名称</label>
+                                            <input type="text" class="form-control" id="warehouseName" th:name="warehouseName" required="required">
                                             <div class="invalid-feedback">仓库名称不能为空！</div>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label for="wareNum"  class="col-md-2  col-form-label">可收储文物数量</label>
                                         <div class="col-md-10">
-                                            <input type="number" class="form-control" id="wareNum" min="0" step="20" required>
-                                            <div class="invalid-feedback">请输入合法的数量!</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label for="wareInNum"  class="col-md-2  col-form-label">已收储文物数量</label>
-                                        <div class="col-md-10">
-                                            <input type="number" class="form-control" id="wareInNum" min="0" step="20" required>
+                                            <label for="shelvesNumber"  class="col-md-2  col-form-label">已收储文物数量</label>
+                                            <input type="number" class="form-control" id="shelvesNumber" th:name="shelvesNumber" min="0">
                                             <div class="invalid-feedback">请输入合法的数量!</div>
                                         </div>
                                     </div>

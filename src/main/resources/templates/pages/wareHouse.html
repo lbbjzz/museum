@@ -46,14 +46,20 @@
                         <div class="card">
                             <div class="card-header">
                                 <!-- 添加按钮 -->
-                                <a class="btn btn-primary btn-sm "  th:href="@{/AddwareHouse}"> <i
+                                <a class="btn btn-primary btn-sm "  th:href="@{/toAddWarehouse}"> <i
                                         class="fa fa-plus-square"></i> 创建</a>
-                                <!-- TODO:搜索框 ，如果不需要这个功能可以删除-->
                                 <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 200px;">
-                                        <input type="text" name="table_search" class="form-control float-right" placeholder="搜索">
+                                    <div class="input-group input-group-sm" style="width: 200px;margin-top: 1px;">
+                                        <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="请输入文物名称">
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                            <button type="submit" onclick="javascript:butOnclick();" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                            <script>
+                                                function butOnclick()
+                                                {
+                                                    var inputname=document.getElementById("table_search").value;
+                                                    window.location.href="selectByWareHouseName?warehouseName="+inputname;
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
@@ -63,56 +69,34 @@
                                 <table class="table table-head-fixed text-nowrap table-bordered table-hover table-striped my-table"
                                        id="warehouseTable">
                                     <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>仓库名称</th>
-                                        <th>可收储文物数量</th>
-                                        <th>已收储文物数量</th>
-                                        <th>创建时间</th>
-                                        <th style="width: 240px;">操作</th>
-                                    </tr>
+                                        <tr>
+                                            <th>仓库编号</th>
+                                            <th>仓库名称</th>
+                                            <th>已收储文物数量</th>
+                                            <th style="width: 240px;">操作</th>
+                                        </tr>
                                     </thead>
-                                    <tbody>
-                                    <!-- TODO:修改真实数据 -->
-                                    <tr>
-                                        <td>1</td>
-                                        <td>西南角仓库</td>
-                                        <td>100</td>
-                                        <td>98</td>
-                                        <td>2020-4-16</td>
+                                    <tr th:each="item,eee: ${warehouse}">
+                                        <td th:text="${item.id}"></td>
+                                        <td th:text="${item.warehouseName}"></td>
+                                        <td th:text="${item.shelvesNumber}"></td>
                                         <td>
-                                            <!-- TODO:href为通过id获取仓库信息(格式:/../../id),用于填充到编辑框 -->
-                                            <a href="./wareHouseEdit.html"
+                                            <a th:href="'/wareHouseEdit/'+${item.id}"
                                                class="btn btn-secondary btn-sm toggle-edit-modal-btn">
                                                 <i class="fa fa-edit" aria-hidden="true"></i>
                                                 编辑</a>
-                                            <!-- TODO:href为删除仓库的接口,(格式:/../../id),删除成功需要返回?result=1,用于提示用户删除成功 -->
-                                            <a href="./warehouse.html?result=1" class="btn btn-danger btn-sm delete-confirm-btn">
+                                            <a th:href="'/deleteWareHouse/'+${item.id}" class="btn btn-danger btn-sm delete-confirm-btn">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>
                                         </td>
                                     </tr>
-                                    </tbody>
                                 </table>
-                            </div>
-                            <!-- 分页 -->
-                            <div class="card-footer clearfix">
-                                <ul class="pagination pagination-sm m-0 float-right">
-                                    <!-- TODO:需要根据数据库条数判断-->
-                                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                                </ul>
                             </div>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
                     </div>
                 </div>
-
-
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
