@@ -69,7 +69,7 @@ public class culturalRelicController {
     @PostMapping("/update")
     public String CulturalEdit(Cultural_relic relic) {
         culturalMapper.update(relic);
-        return "redirect:/culturalInfo";
+        return "redirect:/culturalInfo?result=1";
     }
 
     @GetMapping("/culturalEntry")
@@ -81,7 +81,7 @@ public class culturalRelicController {
     @PostMapping("/createcultural")
     public String createcultural(Cultural_relic cultural_relic) {
         culturalMapper.Insert(cultural_relic);
-        return "redirect:/culturalInfo";
+        return "redirect:/culturalInfo?result=1";
     }
 
     //文物删除
@@ -89,7 +89,7 @@ public class culturalRelicController {
     public String delete(@PathVariable Long id) {
         culturalMapper.delete(id);
         //重定向到list URL
-        return "redirect:/culturalInfo";
+        return "redirect:/culturalInfo?result=1";
     }
 
     //通过名字模糊查找

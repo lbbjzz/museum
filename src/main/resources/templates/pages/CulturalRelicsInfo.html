@@ -1,10 +1,5 @@
 <!--文物信息一览界面-->
 
-<!--文物估值界面-->
-
-
-<!--文物拍照界面-->
-<!--原型界面-->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -156,7 +151,7 @@
                                                 编辑</a>
                                             <!-- TODO:href为删除用户的接口,(格式:/../../id),删除成功需要返回?result=1,用于提示用户操作成功 -->
                                             <a th:href="'/delete/' + ${item.id}"
-                                               class="btn btn-danger btn-xs delete-confirm-btn">
+                                               class="btn btn-danger btn-xs delete-confirm-btn"  onclick=" return deleteConfirm()">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>
                                         </td>
@@ -253,7 +248,12 @@
     <!-- 底部页脚Footer -->
     <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
 
+
+
 </div>
+
+
+
 </body>
 
 </html>

@@ -78,7 +78,7 @@
                                                 <td th:text="${item.borrowTime}"></td>
                                                 <td>
                                                     <a th:href="'/borrowDelete/'+${item.culturalRelicId}"
-                                                          class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;">
+                                                          class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;" >
                                                         <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                         归还</a>
                                                 </td>
@@ -99,8 +99,13 @@
         <!-- /.content -->
         <!-- 底部页脚Footer -->
         <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
+
     </div>
     <script>
+
+
+
+
         $(function () {
             checkForm();
         })

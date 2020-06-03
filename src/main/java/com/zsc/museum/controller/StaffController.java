@@ -18,6 +18,7 @@ import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.List;
 //用户管理类控制器
+//操作成功返回result=1
 
 @Controller
 public class StaffController {
@@ -69,6 +70,7 @@ public class StaffController {
     public String estimate(Model model) {
         return "pages/estimate";
     }
+
 
 
 

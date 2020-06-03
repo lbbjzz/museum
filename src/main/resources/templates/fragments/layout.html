@@ -112,6 +112,8 @@
                     </a>
                 </li>
 
+
+
                 <li class="nav-item">
                     <a th:href="@{/wareHouse}" class="nav-link">
                         <i class="nav-icon fa fa-home"></i>
@@ -172,10 +174,24 @@
             src="../../static/dist/js/adminlte.min.js"></script>
     <!--  <script src="../static/dist/js/common.js"></script>-->
     <script th:src="@{/bootstrap4/assets/js/toastr.min.js}"></script>
+
+<!--    用于检测操作结果，返回操作成功提示-->
     <script>
         var opResult = getQueryVariable("result");
         if (opResult == '1')
             toastr.success("操作成功")
+
+        // 删除确认
+        function deleteConfirm(){
+
+            var msg = "您确定要删除吗？\n\n请确认！";
+            if (confirm(msg)==true){
+                return true;
+            }else{
+                return false;
+            }
+
+        }
     </script>
 </footer>
 
