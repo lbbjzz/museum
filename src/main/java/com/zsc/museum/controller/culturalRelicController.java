@@ -1,7 +1,9 @@
 package com.zsc.museum.controller;
 
 import com.zsc.museum.domain.Cultural_relic;
+import com.zsc.museum.domain.Warehouse;
 import com.zsc.museum.mapper.CulturalMapper;
+import com.zsc.museum.mapper.WarehouseMapper;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -21,7 +23,6 @@ import java.util.List;
 public class culturalRelicController {
     @Resource
     CulturalMapper culturalMapper;
-
     //单页显示文物
     @GetMapping("/culturalInfo")
     public String listCultural(Model model) {
@@ -73,7 +74,9 @@ public class culturalRelicController {
     }
 
     @GetMapping("/culturalEntry")
-    public String culturalEntry() {
+    public String culturalEntry(Model model) {
+        List<Warehouse>warehouses=culturalMapper.findAllWareHouse();
+        model.addAttribute("warehouses", warehouses);
         return "pages/CulturalRelicsEntry";
     }
 

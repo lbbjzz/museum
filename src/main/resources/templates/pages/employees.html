@@ -52,10 +52,17 @@
 
                                 <!-- TODO:搜索框 ，如果不需要这个功能可以删除-->
                                 <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 200px;">
-                                        <input type="text" name="table_search" class="form-control float-right" placeholder="搜索">
+                                    <div class="input-group input-group-sm" style="width: 200px;margin-top: 1px;">
+                                        <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="请输入职员姓名">
                                         <div class="input-group-append">
-                                            <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                            <button type="submit" onclick="javascript:butOnclick();" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                            <script>
+                                                function butOnclick()
+                                                {
+                                                    var inputname=document.getElementById("table_search").value;
+                                                    window.location.href="selectbystaffname?name="+inputname;
+                                                }
+                                            </script>
                                         </div>
                                     </div>
                                 </div>
