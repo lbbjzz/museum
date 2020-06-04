@@ -77,7 +77,7 @@ public class culturalRelicController {
     //更新文物
     @PostMapping("/update")
     public String CulturalEdit(Cultural_relic relic) {
-        culturalMapper.update(relic);
+        culturalMapper.update(fileName,relic);
         return "redirect:/culturalInfo?result=1";
     }
 
