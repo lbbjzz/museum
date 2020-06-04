@@ -13,7 +13,7 @@ public class Cultural_relic {
     String title;           //年号
     String source;          //来源
     String size;            //尺寸
-    Long values;            //价值
+    Long price;            //价值
     String wareHouse;       //所在仓库
 
     public Long getId() {
@@ -80,12 +80,12 @@ public class Cultural_relic {
         this.size = size;
     }
 
-    public Long getValues() {
-        return values;
+    public Long getPrice() {
+        return price;
     }
 
-    public void setValues(Long values) {
-        this.values = values;
+    public void setPrice(Long price) {
+        this.price = price;
     }
 
     public String getWareHouse() {
@@ -107,7 +107,7 @@ public class Cultural_relic {
                 ", title='" + title + '\'' +
                 ", source='" + source + '\'' +
                 ", size='" + size + '\'' +
-                ", values=" + values +
+                ", price=" + price +
                 ", wareHouse='" + wareHouse + '\'' +
                 '}';
     }
