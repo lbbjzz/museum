@@ -15,6 +15,7 @@ public class Cultural_relic {
     String size;            //尺寸
     Long price;            //价值
     String wareHouse;       //所在仓库
+    String image;          //图片路径
 
     public Long getId() {
         return id;
@@ -96,6 +97,14 @@ public class Cultural_relic {
         this.wareHouse = wareHouse;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Cultural_relic{" +
@@ -109,6 +118,7 @@ public class Cultural_relic {
                 ", size='" + size + '\'' +
                 ", price=" + price +
                 ", wareHouse='" + wareHouse + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }
