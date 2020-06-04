@@ -114,7 +114,6 @@
                                             <th>来源</th>
                                             <th>尺寸</th>
                                             <th>所在仓库</th>
-                                            <th>录入日期</th>
                                             <th>图片</th>
                                             <th>价值</th>
                                             <th style="width: 150px;">操作</th>
@@ -129,7 +128,6 @@
                                         <td th:text="${item.source}"></td>
                                         <td th:text="${item.size}"></td>
                                         <td th:text="${item.wareHouse}"></td>
-                                        <td th:text="2020-12-31"></td>
                                         <td>
                                             <a data-toggle="lightbox" data-title="唐三彩"
                                                th:href="@{${item.image}}" target="_blank">
