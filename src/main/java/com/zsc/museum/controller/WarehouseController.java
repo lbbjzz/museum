@@ -63,7 +63,7 @@ public class WarehouseController {
     public String delete(@PathVariable Long id) {
         warehouseMapper.delete(id);
         //重定向到list URL
-        return "redirect:/wareHouse";
+        return "redirect:/wareHouse?result=1";
     }
 
     //通过名字模糊查找

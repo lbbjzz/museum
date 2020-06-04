@@ -54,7 +54,7 @@ public class OutController {
     public String delete(@PathVariable Long id) {
         outMapper.delete(id);
         //重定向到list URL
-        return "redirect:/out_library";
+        return "redirect:/out_library?result=1";
     }
 
 

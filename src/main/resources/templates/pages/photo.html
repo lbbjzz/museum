@@ -8,8 +8,6 @@
     <!-- 侧边导航栏 Main Sidebar Container -->
     <aside th:replace="fragments/layout::leftAside"></aside>
 
-
-
     <!--页面内容 Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -29,33 +27,62 @@
                 </div>
             </div>
         </div>
+        <!-- 页面主要内容Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- 内容 -->
+
+                <div class="row" style="color: black;">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+
+                                <div style="width: 100%;height: 30px;">
+                                    <div style="width: 30%;height: 30px;float: left;margin-left: 2%">
+                                        <input id="imgFileName" type="number" value="" placeholder="请输入文物编号" style="border:0.5px solid #378888;border-radius: 10px;width: 100%;height: 30px;"/>
+                                    </div>
+                                    <div style="width: 30%;height: 30px;float: left;margin-left: 6%">
+                                        <label for="imgW" style="font-size: 10px;width: 20%">图片宽度:</label>
+                                        <input type="number" value="" id="imgW" placeholder="默认是原图宽度" style="border:0.5px solid #378888;border-radius: 10px;width: 70%;height: 30px;"/>
+                                    </div>
+                                    <div style="width: 30%;height: 30px;float: left;margin-left: 2%">
+                                        <label for="imgH" style="font-size: 10px;width: 20%">图片高度:</label>
+                                        <input type="number" value="" id="imgH" placeholder="默认是原图高度" style="border:0.5px solid #378888;border-radius: 10px;width: 70%;height: 30px;"/>
+                                    </div>
+                                    <!--                                    <select id="sel">-->
+                                    <!--                                        <option value="png">png</option>-->
+                                    <!--                                        <option value="jpeg">jpeg</option>-->
+                                    <!--                                        <option value="bmp">bmp</option>-->
+                                    <!--                                    </select>-->
+                                </div>
+
+                                <div style="width: 100%;height: 40px;float: left;margin-top: 20px;margin-bottom: 20px">
+                                    <input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;"/>
+                                    <button id="snap" onclick="takePhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">拍照</button>
+                                    <button class="toCanvas" id="ok" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">确认并保存</button>
+                                </div>
+
+                                <!--                                    <div style="width:210px;height:210px;float: left;margin-left: 200px">-->
+                                <!--                                        <video id="video" width="200px" height="200px" autoplay="autoplay"></video>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div style="width:210px;height:210px;float: left;margin-left: 200px" class="test">-->
+                                <!--                                        <canvas id="canvas" width="200px" height="200px"></canvas>-->
+                                <!--                                    </div>-->
+
+                                <video id="video" width="300px" height="300px" autoplay="autoplay" style="margin-left: 20%"></video>
+                                <canvas id="canvas" width="300px" height="300px" class="test" style="margin-left: 20%"></canvas>
 
 
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
 
-        <div style="width: 45%;height: 80px;float: left;margin-left: 150px;margin-bottom: 20px">
-
-            <input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;"/><p></p>
-            <button id="snap" onclick="takePhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;">拍照</button><p></p>
+            </div><!-- /.container-fluid -->
         </div>
-        <div style="width: 200px;height: 80px;float: left;margin-left: 150px;margin-bottom: 20px">
-            <a th:href="@{/takePhoto}"><button id="ok" onclick="okPhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;">确认</button><p></p></a>
-            <a th:href="@{/takePhoto}"><button id="quit" onclick="quitPhoto()" style="color: #fff;background: #FF3333;outline: none;border-width:0px;width: 200px;height: 30px;border-radius:10px;">返回</button><p></p></a>
-
-        </div>
-
-        <div style="width: 500px;height: 50%;float: left;margin-left: 100px;">
-            <video id="video" width="500px" height="500px" autoplay="autoplay"></video>
-        </div>
-
-        <div style="width: 500px;height: 50%;float: left;margin-left: 100px;">
-            <canvas id="canvas" width="500px" height="500px" ></canvas>
-        </div>
-
-
-
-
-
-
+        <!-- /.content -->
     </div>
 
     <!-- 底部页脚Footer -->
@@ -63,23 +90,18 @@
 </div>
 
 
-</body>
 
-<script>
+<script th:src="@{/bootstrap4/js/jquery.min.js}"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+<script th:src="@{/bootstrap4/js/canvas2image.js}"></script>
+<script type="text/javascript">
     //获得video摄像头区域
     let video = document.getElementById("video");
     function getMedia() {
         let constraints = {
-            video: {width: 500, height: 500},
-            audio: true
+            video: {width: 300, height: 300},
+            audio: false
         };
-        /*
-        这里介绍新的方法:H5新媒体接口 navigator.mediaDevices.getUserMedia()
-        这个方法会提示用户是否允许媒体输入,(媒体输入主要包括相机,视频采集设备,屏幕共享服务,麦克风,A/D转换器等)
-        返回的是一个Promise对象。
-        如果用户同意使用权限,则会将 MediaStream对象作为resolve()的参数传给then()
-        如果用户拒绝使用权限,或者请求的媒体资源不可用,则会将 PermissionDeniedError作为reject()的参数传给catch()
-        */
         let promise = navigator.mediaDevices.getUserMedia(constraints);
         promise.then(function (MediaStream) {
             video.srcObject = MediaStream;
@@ -92,34 +114,31 @@
         //获得Canvas对象
         let canvas = document.getElementById("canvas");
         let ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, 500, 500);
+        ctx.drawImage(video, 0, 0, 300, 300);
 
-        var image = canvas.toDataURL("image/png");
-        //新窗口
-        //var w=window.open('文物图片','image from canvas');
-        //在新窗口打开文物照片
-        //w.document.write("<img src='"+image+"' alt='from canvas'/>");
     }
 
-    //确认照片并返回到文物拍照界面
-    function okPhoto() {
-        var image = canvas.toDataURL("image/png");
-        localStorage.name = image;
-        // location.href = "takePhoto.html";
-    }
-
-    // //返回文物拍照界面
-    // function quitPhoto() {
-    //     location.href = "takePhoto.html";
-    // }
-
-    function error(error) {
-        console.log("访问用户媒体设备失败${error.name}, ${error.message}");
-    }
+    var test = $(".test").get(0); //将jQuery对象转换为dom对象
+    $('.toCanvas').click(function(e) {
+        // 调用html2canvas插件
+        html2canvas(test).then(function(ctx) {
+            // canvas宽度
+            var canvasWidth = ctx.width;
+            // canvas高度
+            var canvasHeight = ctx.height;
+            // 调用Canvas2Image插件
+            //var img = Canvas2Image.convertToImage(ctx, canvasWidth, canvasHeight);
+            let type = $('#sel').val(); //图片类型
+            let w = $('#imgW').val(); //图片宽度
+            let h = $('#imgH').val(); //图片高度
+            let f = $('#imgFileName').val(); //图片文件名
+            w = (w === '') ? canvasWidth : w; //判断输入宽高是否为空，为空时保持原来的值
+            h = (h === '') ? canvasHeight : h;
+            // 调用Canvas2Image插件
+            Canvas2Image.saveAsImage(ctx, w, h, type, f);
+        });
+    });
 </script>
 
-
-
 </body>
-
 </html>

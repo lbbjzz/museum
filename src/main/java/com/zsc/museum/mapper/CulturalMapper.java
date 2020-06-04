@@ -3,11 +3,7 @@ package com.zsc.museum.mapper;
 
 import com.zsc.museum.domain.Cultural_relic;
 import com.zsc.museum.domain.Warehouse;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -41,5 +37,13 @@ public interface CulturalMapper {
             "age=#{age},wareHouse=#{wareHouse},source=#{source},size=#{size} " +
             "WHERE id=#{id}")
     int update(Cultural_relic cultural_relic);
+
+
+
+
+
+    //文物估值
+    @Select("UPDATE cultural_relic SET price=#{price} WHERE id=#{id}")
+    public String value(@Param("price") String price, @Param("id") String id);
 
 }
