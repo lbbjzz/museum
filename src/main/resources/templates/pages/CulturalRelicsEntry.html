@@ -43,28 +43,29 @@
                                             <label for="name">文物图片路径选择 <span class="text-danger">(*)</span></label>
                                             <div class="form-group">
                                                 <input type='file' style='margin-top: 20px;' name='files' required='required'>
+                                                <input id="submit" type="button" value="上传" onclick="ajaxUpload()"/>
+                                                <script type="text/javascript">
+                                                    function ajaxUpload() {
+                                                        var form = new FormData();
+                                                        $.each($('input[name="files"]'),function (index, item) {
+                                                            form.append("files",item.files[0])
+                                                        });
+                                                        $.ajax({
+                                                            method:'post',
+                                                            url:'/ajaxUploadFile',
+                                                            data:form,
+                                                            processData:false,
+                                                            contentType:false,
+                                                            success:function (res) {
+                                                                alert(res.msg);
+                                                            },
+                                                            error:function () {
+                                                                console.log("ajax请求失败");
+                                                            }
+                                                        })
+                                                    }
+                                                </script>
                                             </div>
-                                            <script type="text/javascript">
-                                                function ajaxUpload() {
-                                                    var form = new FormData();
-                                                    $.each($('input[name="files"]'),function (index, item) {
-                                                        form.append("files",item.files[0])
-                                                    });
-                                                    $.ajax({
-                                                        method:'post',
-                                                        url:'/ajaxUploadFile',
-                                                        data:form,
-                                                        processData:false,
-                                                        contentType:false,
-                                                        success:function (res) {
-                                                            alert(res.msg);
-                                                        },
-                                                        error:function () {
-                                                            console.log("ajax请求失败");
-                                                        }
-                                                    })
-                                                }
-                                            </script>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -111,7 +112,7 @@
                                     </div>
                                     <hr class="mb-4">
                                     <button class="btn btn-primary btn-lg btn-block"
-                                            type="submit" onclick="ajaxUpload()">添加
+                                            type="submit">添加
                                     </button>
                                 </form>
                             </div>

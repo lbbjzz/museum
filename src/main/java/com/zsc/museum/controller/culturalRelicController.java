@@ -91,7 +91,6 @@ public class culturalRelicController {
     //文物添加
     @PostMapping("/createcultural")
     public String createcultural(Cultural_relic cultural_relic) {
-        System.out.println(fileName);
         culturalMapper.Insert(fileName,cultural_relic);
         return "redirect:/culturalInfo?result=1";
     }
