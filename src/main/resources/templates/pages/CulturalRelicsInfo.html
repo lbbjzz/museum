@@ -132,7 +132,7 @@
                                         <td th:text="2020-12-31"></td>
                                         <td>
                                             <a data-toggle="lightbox" data-title="唐三彩"
-                                               href="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3762127541,3137938035&fm=26&gp=0.jpg">
+                                               th:href="@{${item.image}}" target="_blank">
                                                 <img width="40"
                                                      th:src="@{${item.image}}"
                                                      style="width: auto;height: 60px;" alt="文物图片">
