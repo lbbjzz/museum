@@ -26,6 +26,7 @@ import java.util.UUID;
 
 @Controller
 public class culturalRelicController {
+    String fileName;
     @Resource
     CulturalMapper culturalMapper;
     //单页显示文物
@@ -90,7 +91,8 @@ public class culturalRelicController {
     //文物添加
     @PostMapping("/createcultural")
     public String createcultural(Cultural_relic cultural_relic) {
-        culturalMapper.Insert(cultural_relic);
+        System.out.println(fileName);
+        culturalMapper.Insert(fileName,cultural_relic);
         return "redirect:/culturalInfo?result=1";
     }
 
@@ -116,7 +118,7 @@ public class culturalRelicController {
     public Map<String, Object> ajaxUploadFile(MultipartFile[] files){
         Map<String, Object> map=new HashMap<>();
         for(MultipartFile file:files){
-            String fileName = file.getOriginalFilename();
+            fileName = file.getOriginalFilename();
             String path = System.getProperty("user.dir");
             String dirPath = path+"/src/main/resources/static/cultural/";
             File filePath = new File(dirPath);

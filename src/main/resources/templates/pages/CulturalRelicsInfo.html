@@ -130,9 +130,9 @@
                                         <td th:text="${item.wareHouse}"></td>
                                         <td>
                                             <a data-toggle="lightbox" data-title="唐三彩"
-                                               th:href="@{${item.image}}" target="_blank">
+                                               th:href="'/cultural/'+${item.image}" target="_blank">
                                                 <img width="40"
-                                                     th:src="@{${item.image}}"
+                                                     th:src="'/cultural/'+${item.image}"
                                                      style="width: auto;height: 60px;" alt="文物图片">
                                             </a>
                                         </td>

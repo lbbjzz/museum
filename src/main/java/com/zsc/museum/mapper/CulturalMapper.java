@@ -29,17 +29,14 @@ public interface CulturalMapper {
     @Select("SELECT * FROM cultural_relic WHERE name LIKE CONCAT('%',#{name},'%')")
     List<Cultural_relic> SelectByName(String name);
 
-    @Insert("INSERT INTO cultural_relic(id,name,number,wareHouse,material,age,source,size)"+
-    "values (#{id},#{name},#{number},#{wareHouse},#{material},#{age},#{source},#{size})")
-    int Insert(Cultural_relic cultural_relic);
+    @Insert("INSERT INTO cultural_relic(id,name,number,wareHouse,material,age,source,size,image)"+
+    "values (#{cultural_relic.id},#{cultural_relic.name},#{cultural_relic.number},#{cultural_relic.wareHouse},#{cultural_relic.material},#{cultural_relic.age},#{cultural_relic.source},#{cultural_relic.size},#{image})")
+    int Insert(@Param("image") String image,@Param("cultural_relic") Cultural_relic cultural_relic);
 
     @Update("UPDATE cultural_relic SET name=#{name}, number=#{number},material=#{material}," +
             "age=#{age},wareHouse=#{wareHouse},source=#{source},size=#{size} " +
             "WHERE id=#{id}")
     int update(Cultural_relic cultural_relic);
-
-    @Update("UPDATE cultural_relic SET image=#{image} WHERE id=#{id}")
-    int updateImage(Cultural_relic cultural_relic);
 
     //文物估值
     @Select("UPDATE cultural_relic SET price=#{price} WHERE id=#{id}")
