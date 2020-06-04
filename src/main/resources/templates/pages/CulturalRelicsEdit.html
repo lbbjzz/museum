@@ -59,24 +59,9 @@
 
                                         <div class="mb-3 col-md-6">
                                             <label for="wareHouse">所在仓库<span class="text-danger">(*)</span></label>
-                                            <select class="form-control" id="wareHouse" th:name="wareHouse" >
-                                                <option></option>
-                                                <option>珍宝馆</option>
-                                                <option>金銮殿</option>
-                                                <option>1号仓库</option>
-                                                <option>2号仓库</option>
-                                                <option>3号仓库</option>
-                                                <option>4号仓库</option>
-                                                <option>5号仓库</option>
-                                                <option>6号仓库</option>
-                                                <option>7号仓库</option>
-                                                <option>8号仓库</option>
-                                                <option>9号仓库</option>
-                                                <option>10号仓库</option>
-                                                <option>11号仓库</option>
-                                                <option>12号仓库</option>
-                                                <option>13号仓库</option>
-                                                <option>14号仓库</option>
+                                            <select class="form-control" id="wareHouse" th:name="wareHouse">
+                                                <option th:value="${cultural_relic.wareHouse}" th:text="${cultural_relic.wareHouse}"></option>
+                                                <option th:each="item,eee: ${warehouses}" th:value="${item.warehouseName}" th:text="${item.warehouseName}"></option>
                                             </select>
                                         </div>
                                     </div>

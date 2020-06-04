@@ -62,6 +62,8 @@ public class culturalRelicController {
     public String toCulturalEdit(@PathVariable Long id, Model model) {
         Cultural_relic cultural_relic = culturalMapper.SelectOne(id);
         model.addAttribute("cultural_relic", cultural_relic);
+        List<Warehouse> warehouses = culturalMapper.findAllWareHouse();
+        model.addAttribute("warehouses", warehouses);
         return "pages/CulturalRelicsEdit";
     }
 
