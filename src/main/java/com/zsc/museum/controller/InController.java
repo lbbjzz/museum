@@ -56,7 +56,7 @@ public class InController {
     public String delete(@PathVariable Long id) {
         inMapper.delete(id);
         //重定向到list URL
-        return "redirect:/in_library";
+        return "redirect:/in_library?result=1";
     }
 
 

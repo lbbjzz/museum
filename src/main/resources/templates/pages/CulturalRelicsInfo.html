@@ -151,7 +151,7 @@
                                                 编辑</a>
                                             <!-- TODO:href为删除用户的接口,(格式:/../../id),删除成功需要返回?result=1,用于提示用户操作成功 -->
                                             <a th:href="'/delete/' + ${item.id}"
-                                               class="btn btn-danger btn-xs delete-confirm-btn"  onclick=" return deleteConfirm()">
+                                               class="btn btn-danger btn-xs delete-confirm-btn" >
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>
                                         </td>
@@ -252,7 +252,28 @@
 
 </div>
 
-
+<script>
+    // 删除按钮
+    $("#infoTable").on('click', '.delete-confirm-btn', function (e) {
+        e.preventDefault();
+        // 获取a标签的url
+        let targetUrl = $(this).attr("href");
+        Swal.fire({
+            title: `您确定删除吗?`,
+            text: "此操作不可逆,请慎重考虑",
+            type:'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#dc3545',
+            cancelButtonText: '取消',
+            confirmButtonText: '确认'
+        }).then((result) => {
+            if (result.value) {
+            $(location).attr('href', targetUrl);
+        }
+    });
+    });
+</script>
 
 </body>
 

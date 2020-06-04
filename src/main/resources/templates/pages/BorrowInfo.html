@@ -89,7 +89,7 @@
                             <!-- 表格 -->
                             <div class="card-body table-responsive p-0" style="height: 500px;">
                                 <table class="table table-head-fixed text-nowrap table-bordered table-hover table-striped my-table"
-                                       id="infoTable">
+                                       id="borrowInfoTable">
                                     <thead>
                                         <tr>
                                             <th>出借序号</th>
@@ -106,7 +106,7 @@
                                         <td th:text="${item.borrowTime}"></td>
                                         <td>
                                             <a th:href="'/borrowDeleteInPage/'+${item.borrowId}"
-                                               class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;" onclick=" return deleteConfirm()">
+                                               class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 归还</a>
                                         </td>
@@ -127,6 +127,30 @@
     <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
 
 </div>
+
+<script>
+    // 删除按钮
+    $("#borrowInfoTable").on('click', '.delete-confirm-btn', function (e) {
+        e.preventDefault();
+        // 获取a标签的url
+        let targetUrl = $(this).attr("href");
+        Swal.fire({
+            title: `您确定归还吗?`,
+            text: "此操作不可逆,请慎重考虑",
+            type:'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#dc3545',
+            cancelButtonText: '取消',
+            confirmButtonText: '确认'
+        }).then((result) => {
+            if (result.value) {
+            $(location).attr('href', targetUrl);
+        }
+    });
+    });
+</script>
+
 </body>
 
 </html>

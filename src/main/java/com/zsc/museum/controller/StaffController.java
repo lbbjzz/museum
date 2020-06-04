@@ -111,7 +111,7 @@ public class StaffController {
     public String delete(@PathVariable Long id) {
         staffMapperMapper.delete(id);
         //重定向到list URL
-        return "redirect:/employees";
+        return "redirect:/employees?result=1";
     }
 
     @GetMapping("/editemployee/{id}")
