@@ -1,6 +1,7 @@
 package com.zsc.museum.controller;
 import com.zsc.museum.domain.Staff;
 import com.zsc.museum.mapper.StaffMapper;
+import com.zsc.museum.service.CulturalRelicService;
 import com.zsc.museum.service.StaffService;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Row;
@@ -27,9 +28,14 @@ public class StaffController {
 
 
 
+
+
     @Autowired
     public StaffService staffService;
 
+
+    @Autowired
+    public CulturalRelicService culturalService;
 
     //登录
     @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.GET})
@@ -42,34 +48,35 @@ public class StaffController {
     public String login(HttpServletRequest request, HttpSession session) {
         String number = request.getParameter("number");
         String password = request.getParameter("password");
-        //System.out.println("你输入的用户名为：" + number);
-        //System.out.println("你输入的密码为：" + password);
         String tname = staffService.login(number, password);
         session.setAttribute("tname", tname);
         if (tname == null) {
             return "redirect:/";
         } else {
-            return "redirect:/takePhoto";
+            return "redirect:/findFirstPage";
         }
     }
 
-    @RequestMapping(value = "/takePhoto", method = {RequestMethod.POST, RequestMethod.GET})
-    public String loginindex() {
-        return "pages/takePhoto";
-    }
-
-
     //拍照
-    @GetMapping("/photo")
-    public String photoStaff(Model model) {
+    @RequestMapping(value = "/photo", method = {RequestMethod.POST, RequestMethod.GET})
+    public String loginindex() {
         return "pages/photo";
     }
 
-    //文物估值
-    @GetMapping("/estimate")
-    public String estimate(Model model) {
-        return "pages/estimate";
+
+    //估值
+    @RequestMapping(value = "/estimateEdit", method = {RequestMethod.POST, RequestMethod.GET})
+    public String value(HttpServletRequest request, HttpSession session) {
+        String id = request.getParameter("id");
+        String price = request.getParameter("price");
+
+        culturalService.value(price,id);
+        return "pages/estimateEdit";
     }
+
+
+
+
 
     //查看用户
     @GetMapping("/employees")

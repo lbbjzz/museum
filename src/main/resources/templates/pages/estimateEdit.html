@@ -14,7 +14,20 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
-
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="text-dark">文物价值评估</h1>
+                    </div>
+                    <!--   面包屑-->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">文物价值评估</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- 页面主要内容Main content -->
         <div class="content">
@@ -24,31 +37,26 @@
                 <div class="row" style="color: black;">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header" style="padding: 8px"> <i class="fa fa-fw fa-edit"></i>文物价值评估
-                                <a class="btn btn-primary btn-sm float-right"  href="./estimate.html"> <i
-                                        class="fa fa-list"></i> 返回列表</a>
+                            <div class="card-header" style="padding: 8px">
+                                <i class="fa fa-fw fa-edit"></i>文物价值评估
+                                <a class="btn btn-primary btn-sm float-right"  th:href="@{/culturalInfo}">
+                                    <i class="fa fa-list"></i> 返回列表
+                                </a>
                             </div>
                             <div class="card-body">
                                 <form class="needs-validation" action="" novalidate id="estimateEditForm" >
-
-
                                     <div class="form-group row">
-                                        <label for="inValue"  class="col-md-2  col-form-label">入馆价值</label>
+                                        <label for="inValue"  class="col-md-2  col-form-label">文物编号</label>
                                         <div class="col-md-10">
-                                            <input type="number" class="form-control" id="inValue" min="0" step="1000" required>
-                                            <div class="invalid-feedback">请输入合法的金额!</div>
+                                            <input name="id" type="text" class="form-control" id="inValue" required="">
                                         </div>
                                     </div>
-
                                     <div class="form-group row">
-                                        <label for="outValue"  class="col-md-2  col-form-label">离馆价值</label>
+                                        <label for="outValue"  class="col-md-2  col-form-label">文物价值</label>
                                         <div class="col-md-10">
-                                            <input type="number" class="form-control" id="outValue" min="0" step="1000" required>
-                                            <div class="invalid-feedback">请输入合法的金额!</div>
+                                            <input name="price" type="text" class="form-control" id="outValue" required="">
                                         </div>
                                     </div>
-
-
                                     <hr class="mb-4">
                                     <button class="btn btn-primary btn-lg btn-block"
                                             type="submit">提交信息
@@ -60,14 +68,12 @@
                     <!-- /.card -->
                 </div>
             </div>
-
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
 </div>
 <!-- 底部页脚Footer -->
 <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
-
 </div>
 
 
@@ -86,6 +92,9 @@
             f.addClass("was-validated")
         })
     }
+
+
+
 </script>
 
 
