@@ -110,6 +110,7 @@ public class culturalRelicController {
         model.addAttribute("cultural", cultural);
         return "pages/CulturalRelicsInfo";
     }
+
     @PostMapping("/ajaxUploadFile")
     @ResponseBody
     public Map<String, Object> ajaxUploadFile(MultipartFile[] files){
@@ -132,6 +133,7 @@ public class culturalRelicController {
         }
         return map;
     }
+
     //导出到Excel表
     @GetMapping("/export.xls")
     public void downLoadToExcel(OutputStream outputStream) {

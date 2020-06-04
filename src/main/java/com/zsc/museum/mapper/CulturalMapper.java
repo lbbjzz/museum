@@ -38,9 +38,8 @@ public interface CulturalMapper {
             "WHERE id=#{id}")
     int update(Cultural_relic cultural_relic);
 
-
-
-
+    @Update("UPDATE cultural_relic SET image=#{image} WHERE id=#{id}")
+    int updateImage(Cultural_relic cultural_relic);
 
     //文物估值
     @Select("UPDATE cultural_relic SET price=#{price} WHERE id=#{id}")

@@ -41,12 +41,9 @@
                                         </div>
                                         <div class="mb-3 col-md-6">
                                             <label for="name">文物图片路径选择 <span class="text-danger">(*)</span></label>
-                                            <form id="form">
-                                                <div class="form-group">
-                                                    <input type='file' style='margin-top: 20px;' name='files' required='required'>
-                                                    <input id="submit" type="button" value="上传" onclick="ajaxUpload()"/>
-                                                </div>
-                                            </form>
+                                            <div class="form-group">
+                                                <input type='file' style='margin-top: 20px;' name='files' required='required'>
+                                            </div>
                                             <script type="text/javascript">
                                                 function ajaxUpload() {
                                                     var form = new FormData();
@@ -114,7 +111,7 @@
                                     </div>
                                     <hr class="mb-4">
                                     <button class="btn btn-primary btn-lg btn-block"
-                                            type="submit">添加
+                                            type="submit" onclick="ajaxUpload()">添加
                                     </button>
                                 </form>
                             </div>
