@@ -103,6 +103,7 @@ public class culturalRelicController {
         model.addAttribute("cultural", cultural);
         return "pages/CulturalRelicsInfo";
     }
+
     //导出到Excel表
     @GetMapping("/export.xls")
     public void downLoadToExcel(OutputStream outputStream) {
