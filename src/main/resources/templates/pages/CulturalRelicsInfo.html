@@ -43,9 +43,9 @@
                                     <div class="input-group input-group-sm" style="width: 200px;margin-top: 1px;">
                                         <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="请输入文物名称">
                                         <div class="input-group-append">
-                                            <button type="submit" onclick="javascript:butOnclick();" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                            <button type="submit" onclick="javascript:butOnclick11();" class="btn btn-default"><i class="fas fa-search"></i></button>
                                             <script>
-                                                function butOnclick()
+                                                function butOnclick11()
                                                 {
                                                     var inputname=document.getElementById("table_search").value;
                                                     window.location.href="selectbyname?name="+inputname;
@@ -149,7 +149,6 @@
                                                class="btn btn-secondary btn-xs toggle-edit-modal-btn">
                                                 <i class="fa fa-edit" aria-hidden="true"></i>
                                                 编辑</a>
-                                            <!-- TODO:href为删除用户的接口,(格式:/../../id),删除成功需要返回?result=1,用于提示用户操作成功 -->
                                             <a th:href="'/delete/' + ${item.id}"
                                                class="btn btn-danger btn-xs delete-confirm-btn" >
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>

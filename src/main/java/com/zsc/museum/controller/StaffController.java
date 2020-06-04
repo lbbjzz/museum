@@ -71,29 +71,15 @@ public class StaffController {
         return "pages/estimate";
     }
 
-
-
-
     //查看用户
-
     @GetMapping("/employees")
     public String listStaff(Model model) {
-        List<Staff> staffList=staffMapperMapper.findAll();
-        List<Staff> staff = staffMapperMapper.FindtoPage(0);
+        List<Staff> staff=staffMapperMapper.findAll();
         model.addAttribute("Staff", staff);
-        model.addAttribute("num", staff.size());
         return "pages/employees";
     }
-    @GetMapping("/findtostaffPage")
-    public String FindtoPage(Model model,Integer i) {
-        List<Staff> staff = staffMapperMapper.FindtoPage(i);
-        List<Staff> staffList=staffMapperMapper.findAll();
-        model.addAttribute("Staff", staff);
-        model.addAttribute("num", staffList.size());
-        return "pages/employees";
-    }
-    //增加用户
 
+    //增加用户
     @GetMapping("/AddStaff")
     public String StaffAdd() {
             return "pages/employeesAdd";
@@ -102,11 +88,10 @@ public class StaffController {
     @PostMapping("/createStaff")
     public String createStaff(Staff staff) {
         staffMapperMapper.Insert(staff);
-        return "redirect:/employees";
+        return "redirect:/employees?result=1";
     }
 
     //删除用户
-
     @GetMapping("/deleteemployee/{id}")
     public String delete(@PathVariable Long id) {
         staffMapperMapper.delete(id);
@@ -120,12 +105,12 @@ public class StaffController {
         model.addAttribute("Staff", staff);
         return "pages/employeesEdit";
     }
+
     @PostMapping("/updateemployee")
     public String employeesEdit(Staff staff) {
         staffMapperMapper.update(staff);
-        return "redirect:/employees";
+        return "redirect:/employees?result=1";
     }
-
 
     //通过名字模糊查找
     @GetMapping("/selectbystaffname")

@@ -14,8 +14,10 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 @Mapper
 public interface StaffMapper {
+
     @Select("SELECT * FROM staff")
     List<Staff> findAll();
+
     @Select("SELECT * FROM staff LIMIT #{i},5")
     List<Staff> FindtoPage(Integer i);
 

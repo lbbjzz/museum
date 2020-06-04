@@ -59,28 +59,6 @@ public class borrowController {
         return "redirect:/findFirstPage?result=1";
     }
 
-    //删除操作
-    @GetMapping("/borrowDelete/{borrowId}")
-    public String borrowDelete(@PathVariable Long borrowId) {
-        Return return1 = new Return();
-        Borrow borrow = borrowMapper.selectOne(borrowId);
-        Long id = borrow.getCulturalRelicId();
-        String forWho = borrow.getToWho();
-        String borrowTime = borrow.getBorrowTime();
-
-        Date time = new Date();
-        DateFormat returnFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        String returnTime = returnFormat.format(time);
-        return1.setReturnTime(returnTime);
-
-        return1.setCulturalRelicId(id);
-        return1.setForWho(forWho);
-        return1.setBorrowTime(borrowTime);
-        returnMapper.Insert(return1);
-        borrowMapper.borrowDelete(borrowId);
-        return "redirect:/toBorrow/{borrowId}?result=1";
-    }
-
     @GetMapping("/borrowDeleteInPage/{borrowId}")
     public String borrowDeleteInPage(@PathVariable Long borrowId) {
         Return return1 = new Return();
@@ -99,7 +77,7 @@ public class borrowController {
         return1.setBorrowTime(borrowTime);
         returnMapper.Insert(return1);
         borrowMapper.borrowDelete(borrowId);
-        return "redirect:/borrowDetails";
+        return "redirect:/borrowDetails?result=1";
     }
 
     //通过文物ID模糊查找
