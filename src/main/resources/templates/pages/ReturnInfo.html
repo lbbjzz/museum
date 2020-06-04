@@ -112,7 +112,7 @@
                                         <td th:text="${item.returnTime}"></td>
                                         <td>
                                             <a th:href="'/returnDelete/'+${item.returnId}"
-                                               class="btn btn-danger btn-xs delete-confirm-btn">
+                                               class="btn btn-danger btn-xs delete-confirm-btn" onclick=" return deleteConfirm()">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>
                                         </td>

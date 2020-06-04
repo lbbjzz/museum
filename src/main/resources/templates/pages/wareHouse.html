@@ -85,7 +85,7 @@
                                                class="btn btn-secondary btn-sm toggle-edit-modal-btn">
                                                 <i class="fa fa-edit" aria-hidden="true"></i>
                                                 编辑</a>
-                                            <a th:href="'/deleteWareHouse/'+${item.id}" class="btn btn-danger btn-sm delete-confirm-btn">
+                                            <a th:href="'/deleteWareHouse/'+${item.id}" class="btn btn-danger btn-sm delete-confirm-btn" onclick=" return deleteConfirm()">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 删除</a>
                                         </td>
@@ -105,8 +105,6 @@
     <!-- 底部页脚Footer -->
     <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
 </div>
-
-
 
 
 

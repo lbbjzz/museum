@@ -1,10 +1,6 @@
-<!--文物信息一览界面-->
-
-<!--文物估值界面-->
+<!--出借详细一览界面-->
 
 
-<!--文物拍照界面-->
-<!--原型界面-->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -110,7 +106,7 @@
                                         <td th:text="${item.borrowTime}"></td>
                                         <td>
                                             <a th:href="'/borrowDeleteInPage/'+${item.borrowId}"
-                                               class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;">
+                                               class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;" onclick=" return deleteConfirm()">
                                                 <i class="fa fa-trash-alt" aria-hidden="true"></i>
                                                 归还</a>
                                         </td>
