@@ -9,15 +9,20 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.util.ClassUtils;
+import org.springframework.util.ResourceUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @Controller
 public class culturalRelicController {
@@ -105,7 +110,28 @@ public class culturalRelicController {
         model.addAttribute("cultural", cultural);
         return "pages/CulturalRelicsInfo";
     }
-
+    @PostMapping("/ajaxUploadFile")
+    @ResponseBody
+    public Map<String, Object> ajaxUploadFile(MultipartFile[] files){
+        Map<String, Object> map=new HashMap<>();
+        for(MultipartFile file:files){
+            String fileName = file.getOriginalFilename();
+            String path = System.getProperty("user.dir");
+            String dirPath = path+"/src/main/resources/static/cultural/";
+            File filePath = new File(dirPath);
+            if(!filePath.exists()){
+                filePath.mkdirs();
+            }
+            try{
+                file.transferTo((new File(dirPath+fileName)));
+                map.put("msg","上传成功！");
+            }catch (Exception e){
+                e.printStackTrace();
+                map.put("msg","上传失败！");
+            }
+        }
+        return map;
+    }
     //导出到Excel表
     @GetMapping("/export.xls")
     public void downLoadToExcel(OutputStream outputStream) {

@@ -39,6 +39,36 @@
                                             <input type="text" class="form-control" id="name" th:name="name" required ="required">
                                             <div class="invalid-feedback">文物名称不能为空!</div>
                                         </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label for="name">文物图片路径选择 <span class="text-danger">(*)</span></label>
+                                            <form id="form">
+                                                <div class="form-group">
+                                                    <input type='file' style='margin-top: 20px;' name='files' required='required'>
+                                                    <input id="submit" type="button" value="上传" onclick="ajaxUpload()"/>
+                                                </div>
+                                            </form>
+                                            <script type="text/javascript">
+                                                function ajaxUpload() {
+                                                    var form = new FormData();
+                                                    $.each($('input[name="files"]'),function (index, item) {
+                                                        form.append("files",item.files[0])
+                                                    });
+                                                    $.ajax({
+                                                        method:'post',
+                                                        url:'/ajaxUploadFile',
+                                                        data:form,
+                                                        processData:false,
+                                                        contentType:false,
+                                                        success:function (res) {
+                                                            alert(res.msg);
+                                                        },
+                                                        error:function () {
+                                                            console.log("ajax请求失败");
+                                                        }
+                                                    })
+                                                }
+                                            </script>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="mb-3 col-md-6">
