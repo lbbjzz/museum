@@ -10,10 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import sun.misc.BASE64Decoder;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Calendar;
@@ -67,6 +72,29 @@ public class StaffController {
         return "pages/photo";
 
     }
+
+    //拍照并把照片名称存入数据库
+//    @RequestMapping("/photo")
+//    public @ResponseBody String imgFileName(HttpServletRequest request,String dataURL,String test) {
+//        String imgId = request.getParameter("imgId");
+//        String imgFileName="cultural"+imgId+".png";
+//
+//        culturalService.imgFileName(imgFileName,imgId);
+//
+//        BASE64Decoder decoder=new BASE64Decoder();
+//        dataURL=dataURL.replace(" ","+");
+//        try {
+//            byte[] b = decoder.decodeBuffer(dataURL);
+//            ByteArrayInputStream bais=new ByteArrayInputStream(b);
+//            BufferedImage bi1= ImageIO.read(bais);
+//            String path=request.getSession().getServletContext().getRealPath("/src/main/resources/static/cultural/zby.jpg");
+//            File w2=new File(path);
+//            ImageIO.write(bi1,"png",w2);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return "pages/photoEdit";
+//    }
 
 
     //估值
