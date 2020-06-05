@@ -59,6 +59,14 @@
                                     <li>价值:
                                         <span th:text="${cultural_relic.price}"></span>
                                     </li>
+                                    <li>
+                                        <a data-toggle="lightbox" data-title="唐三彩"
+                                           th:href="'/cultural/'+${cultural_relic.image}" target="_blank">
+                                            <img width="40"
+                                                 th:src="'/cultural/'+${cultural_relic.image}"
+                                                 style="width: auto;height: 60px;" alt="文物图片">
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="card-footer">
