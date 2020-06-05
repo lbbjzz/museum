@@ -43,4 +43,12 @@ public interface CulturalMapper {
     @Select("UPDATE cultural_relic SET price=#{price} WHERE id=#{id}")
     public String value(@Param("price") String price, @Param("id") String id);
 
+    //添加照片路径
+    @Select("UPDATE cultural_relic SET image=#{imgFileName} WHERE id=#{id}")
+    public String imgFileName(@Param("imgFileName") String imgFileName, @Param("id") String id);
+
+//    //查询文物编号
+//    @Select("select name from cultural_relic where id=#{imgId}")
+//    public String select(@Param("imgId") String imgId);
+
 }

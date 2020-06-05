@@ -13,6 +13,15 @@ public class CulturalRelicService {
     public String value(String price, String id) {
         return culturalMapper.value(price, id);
     }
+
+
+    public String imgFileName(String imgFileName, String id) {
+        return culturalMapper.imgFileName(imgFileName, id);
+    }
+
+//    public String select(String imgId) {
+//        return culturalMapper.select(imgId);
+//    }
     //public String picture(Blob picture, String id) {
     //    return culturalMapper.picture(picture, id);
     //}

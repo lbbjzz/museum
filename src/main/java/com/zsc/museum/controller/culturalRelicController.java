@@ -4,9 +4,11 @@ import com.zsc.museum.domain.Cultural_relic;
 import com.zsc.museum.domain.Warehouse;
 import com.zsc.museum.mapper.CulturalMapper;
 import com.zsc.museum.mapper.WarehouseMapper;
+import com.zsc.museum.service.CulturalRelicService;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
@@ -29,6 +31,11 @@ public class culturalRelicController {
     String fileName;
     @Resource
     CulturalMapper culturalMapper;
+
+
+
+
+
     //单页显示文物
     @GetMapping("/culturalInfo")
     public String listCultural(Model model) {

@@ -20,6 +20,7 @@ var Canvas2Image = function () {
 
     var downloadMime = 'image/octet-stream';
 
+
     function scaleCanvas (canvas, width, height) {
         var w = canvas.width,
             h = canvas.height;
@@ -215,8 +216,8 @@ var Canvas2Image = function () {
             if (/bmp/.test(type)) {
                 var data = getImageData(scaleCanvas(canvas, width, height));
                 var strData = genBitmapImage(data);
+                saveFile(makeURI(strData, downloadMime),filename);
 
-                saveFile(makeURI(strData, downloadMimedownloadMime),filename);
             } else {
                 var strData = getDataURL(canvas, type, width, height);
                 saveFile(strData.replace(type, downloadMime),filename);
