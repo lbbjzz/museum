@@ -53,33 +53,41 @@
 <!--                                        <input type="number" value="" id="imgH" placeholder="默认是原图高度" style="border:0.5px solid #378888;border-radius: 10px;width: 70%;height: 30px;"/>-->
 <!--                                    </div>-->
 <!--                                </div>-->
-                                <form th:method="post" action="">
+
+
+
+                                <div style="width: 100%;height: 40px;float: left;margin-top: 5px;margin-bottom: 15px">
+                                    <input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;"/>
+                                    <button id="snap" onclick="takePhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">拍照</button>
+                                    <button class="toCanvas" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">确认并保存</button>
+                                </div>
+                                <form th:method="post" action="photo" name="addForm">
                                     <div class="row">
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-6" style="width: 50%">
                                             <label>文物编号 <span class="text-danger">(*)</span></label>
                                             <input required min="1" name="imgId" id="imgFileName"
-                                                   type="number" value="" placeholder="请输入文物编号" style="border:0.5px solid #378888;border-radius: 10px;width: 90%;height: 30px;"/>
+                                                   type="number" value="" placeholder="请在保存照片前输入文物编号" style="border:0.5px solid #378888;border-radius: 10px;width:80%;height: 30px;"/>
                                             <div class="invalid-feedback">文物编号必须大于0!</div>
                                         </div>
 
-                                        <div class="mb-3 col-md-6">
+                                        <div class="mb-3 col-md-6" style="width: 50%">
                                             <label>文物尺寸</label>
                                             <input type="number" value="" id="imgW" placeholder="默认是原图宽度" style="border:0.5px solid #378888;;width: 45%;height: 30px;border-radius: 10px;"/>
                                             <input type="number" value="" id="imgH" placeholder="默认是原图高度" style="border:0.5px solid #378888;;width: 45%;height: 30px;border-radius: 10px;"/>
                                             <div class="invalid-feedback">尺寸不能为空!</div>
                                         </div>
                                     </div>
-                                    <button style="width: 100%;color: #fff;background: #0a90f5;border-width:0px;height: 30px;border-radius:10px;margin-top: 15px;"
-                                            type="button">确认文物编号以及尺寸
+                                    <button style="width: 100%;color: #fff;background: #0a90f5;border-width:0px;height: 30px;border-radius:10px;margin-top: 15px;margin-bottom: 15px;"
+                                            type="submit">确认文物编号以及尺寸
                                     </button>
                                 </form>
 
 
-                                <div style="width: 100%;height: 40px;float: left;margin-top: 20px;margin-bottom: 20px">
-                                    <input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;"/>
-                                    <button id="snap" onclick="takePhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">拍照</button>
-                                    <button class="toCanvas" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">确认并保存</button>
-                                </div>
+<!--                                <div style="width: 100%;height: 40px;float: left;margin-top: 20px;margin-bottom: 20px">-->
+<!--                                    <input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;"/>-->
+<!--                                    <button id="snap" onclick="takePhoto()" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">拍照</button>-->
+<!--                                    <button class="toCanvas" style="color: #fff;background: #0a90f5;outline: none;border-width:0px;width: 25%;height: 30px;border-radius:10px;margin-left: 12%">确认并保存</button>-->
+<!--                                </div>-->
 
                                 <div style="width:30%;height:310px;float: left;margin-left: 10%">
                                     <video id="video" width="300px" height="300px" autoplay="autoplay"></video>
@@ -136,7 +144,21 @@
         ctx.drawImage(video, 0, 0, 300, 300);
 
     }
-
+    //
+    // function okid() {
+    //     if(CheckPost()){
+    //         document.addForm.submit();
+    //     }
+    // }
+    // function CheckPost() {
+    //     if(okimg()){
+    //         return true;
+    //     }
+    //     return false;
+    // }
+    // function okimg() {
+    //     return true;
+    // }
 
 
     var test = $(".test").get(0); //将jQuery对象转换为dom对象
@@ -159,6 +181,7 @@
             // 调用Canvas2Image插件
             Canvas2Image.saveAsImage(ctx, w, h, type, f);
         });
+
     });
 </script>
 
