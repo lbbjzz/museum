@@ -42,7 +42,7 @@ public class StaffController {
     public CulturalRelicService culturalService;
 
     //登录
-    @RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/login", method = {RequestMethod.POST, RequestMethod.GET})
     public String login(Model model) {
         model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         return "/login";

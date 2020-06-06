@@ -1,11 +1,11 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/group3?serverTimezone=UTC&setUnicode=true&characterEncoding=utf8&useAffectedRows=true
-    url: jdbc:mysql://39.96.22.34:3306/group3?serverTimezone=UTC&setUnicode=true&characterEncoding=utf8&useAffectedRows=true
+    url: jdbc:mysql://localhost:3306/group3?serverTimezone=UTC&setUnicode=true&characterEncoding=utf8&useAffectedRows=true
+#    url: jdbc:mysql://39.96.22.34:3306/group3?serverTimezone=UTC&setUnicode=true&characterEncoding=utf8&useAffectedRows=true
     username: root
 #    password: 19980907
-    password: 123
+    password: 123456
 
 
 
