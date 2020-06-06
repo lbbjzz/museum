@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout::head"></head>
+<body class="hold-transition  sidebar-mini bg-black ">
+<div class="wrapper">
+    <!-- 顶部导航栏 Navbar -->
+    <nav th:replace="fragments/layout::topNav"></nav>
+    <!-- 侧边导航栏 Main Sidebar Container -->
+    <aside th:replace="fragments/layout::leftAside"></aside>
+<!--    //test-->
+
+    <!--页面内容 Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="text-dark">文物拍照</h1>
+                    </div>
+                    <!--   面包屑-->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">文物拍照</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页面主要内容Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- 内容 -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+
+
+                                <div class="btn-group">
+                                    <a th:href="@{/photo}">
+                                        <button type="button" class="btn btn-outline-primary btn-sm ">
+                                            <i class="fa fa-filter"></i>
+                                            上传图片
+                                        </button>
+                                    </a>
+                                    <!--                                    <button type="button" class="btn btn-outline-primary btn-sm " id="photobutton">-->
+                                    <!--                                        <i class="fa fa-filter"></i>-->
+                                    <!--                                        上传图片-->
+                                    <!--                                    </button>-->
+
+                                </div>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row" id="recordedContainer">
+                                    <div class="col-md-3 col-sm-6 col-12 recoded-item bg-light">
+                                        <div class="card pt-0" style="width: 100%;">
+                                            <a data-toggle="lightbox" data-title="唐三彩"
+                                               onclick="take()">
+                                                <img
+                                                        src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3762127541,3137938035&fm=26&gp=0.jpg"
+                                                        class="card-img-top" alt="文物图片" id="wenwu">
+
+                                            </a>
+                                            <div class="card-body">
+                                                <h5 class="card-title">文物名称</h5>
+                                                <p class="card-text">拍摄者</p>
+                                                <p class="card-text">2020/5/10</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a href="./photoEdit.html"
+                                                   class="btn btn-secondary btn-sm toggle-edit-modal-btn">
+                                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                                    编辑</a>
+                                                <a href="#" class="btn btn-danger btn-sm delete-confirm-btn">
+                                                    删除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
+
+                                    <!-- /.col -->
+                                </div>
+                            </div>
+                            <!-- 分页 -->
+                            <div class="card-footer clearfix">
+                                <ul class="pagination pagination-sm m-0 float-right">
+                                    <!-- TODO:需要根据数据库条数判断-->
+                                    <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- 底部页脚Footer -->
+    <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
+
+</div>
+
+
+
+<script>
+
+    var image = localStorage["name"];
+    document.getElementById("wenwu").src = image;
+
+
+    function take() {
+
+        var w=window.open('文物图片','image from canvas');
+        //在新窗口打开文物照片
+        w.document.write("<img src='"+image+"' alt='文物照片'/>");
+    }
+
+</script>
+
+
+</body>
+
+</html>
