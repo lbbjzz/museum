@@ -55,7 +55,7 @@ public class StaffController {
         String tname = staffService.login(number, password);
         session.setAttribute("tname", tname);
         if (tname == null) {
-            return "redirect:/";
+            return "redirect:/login";
         } else {
             return "redirect:/findFirstPage";
         }
