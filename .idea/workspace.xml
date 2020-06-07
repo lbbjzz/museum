@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="472ca0cd-39fd-425c-ade0-2b9be792addc" name="Default Changelist" comment="" />
+    <list default="true" id="e909095f-ec38-495f-b785-9b409efc8a21" name="默认更改列表" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/photoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/cultural/cultural16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/cultural/cultural9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/loginError.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/config/MyWebMvcConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/photoController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/cultural/cultural16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/cultural/cultural9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/images/loginError.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/config/PathConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/config/MyWebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/GetPathController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/culturalRelicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/culturalRelicController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/plugins/raphael/raphael.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/plugins/raphael/raphael.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/getImage/getImage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/CulturalRelicsInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/CulturalRelicsInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/photoEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/photoEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/config/PathConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/GetPathController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/StaffController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/StaffController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/culturalRelicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/culturalRelicController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/plugins/raphael/raphael.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/plugins/raphael/raphael.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/getImage/getImage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/pages/CulturalRelicsInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pages/CulturalRelicsInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/pages/photoEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pages/photoEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,15 +52,23 @@
   <component name="CompilerWorkspaceConfiguration">
     <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="F:\Git\GitRepository\java\managementSystem\.idea" />
-      </set>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -27,21 +77,55 @@
         <option name="userSettingsFile" value="D:\apache-maven-3.5.2\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
-  <component name="ProjectId" id="1czLCdwDiuHNlwcOd2PlHKvFuLi" />
+  <component name="ProjectId" id="1cwgGdDUHIYaoRyNa1uuQBCcClQ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lambda" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/zsc/museum/config" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.17471264" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\managementSystem\src\main\resources\static\images" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.zsc.museum.controller" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\config" />
+      <recent name="F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MuseumApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="museum" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.zsc.museum.MuseumApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -60,26 +144,225 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="472ca0cd-39fd-425c-ade0-2b9be792addc" name="Default Changelist" comment="" />
-      <created>1591526348552</created>
+      <changelist id="e909095f-ec38-495f-b785-9b409efc8a21" name="默认更改列表" comment="" />
+      <created>1591444974543</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591526348552</updated>
-      <workItem from="1591526351870" duration="22000" />
+      <updated>1591444974543</updated>
+      <workItem from="1591444976892" duration="1321000" />
+      <workItem from="1591489570777" duration="499000" />
+      <workItem from="1591496747100" duration="2916000" />
+      <workItem from="1591502140038" duration="76000" />
+      <workItem from="1591515101199" duration="19000" />
+      <workItem from="1591515123640" duration="7709000" />
+      <workItem from="1591522986905" duration="2001000" />
     </task>
+    <task id="LOCAL-00001" summary="修复登出bug">
+      <created>1591452781100</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591452781100</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="修复登出bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复登出bug" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="142" y="23" key="SettingsEditor" timestamp="1591526373560">
+    <state x="487" y="270" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1591515135234">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="142" y="23" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1591526373560" />
-    <state x="324" y="205" key="com.intellij.ide.util.TipDialog" timestamp="1591526351805">
+    <state x="487" y="270" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1280.760@0.0.1280.760" timestamp="1591515135234" />
+    <state x="229" y="306" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1591517039935">
       <screen x="0" y="0" width="1280" height="760" />
     </state>
-    <state x="324" y="205" key="com.intellij.ide.util.TipDialog/0.0.1280.760@0.0.1280.760" timestamp="1591526351805" />
+    <state x="229" y="306" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.760@0.0.1280.760" timestamp="1591517039935" />
+    <state x="145" y="0" key="CommitChangelistDialog2" timestamp="1591446330310">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="145" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1591446330310" />
+    <state x="422" y="137" key="FileChooserDialogImpl" timestamp="1591515113572">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="422" y="137" key="FileChooserDialogImpl/0.0.1280.760@0.0.1280.760" timestamp="1591515113572" />
+    <state width="1238" height="138" key="GridCell.Tab.0.bottom" timestamp="1591524028222">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1591524028222" />
+    <state width="1238" height="138" key="GridCell.Tab.0.center" timestamp="1591524028222">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1591524028222" />
+    <state width="1238" height="138" key="GridCell.Tab.0.left" timestamp="1591524028222">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1591524028222" />
+    <state width="1238" height="138" key="GridCell.Tab.0.right" timestamp="1591524028222">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1591524028222" />
+    <state width="1238" height="138" key="GridCell.Tab.1.bottom" timestamp="1591523993534">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.1.bottom/0.0.1280.760@0.0.1280.760" timestamp="1591523993534" />
+    <state width="1238" height="138" key="GridCell.Tab.1.center" timestamp="1591523993534">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.1.center/0.0.1280.760@0.0.1280.760" timestamp="1591523993534" />
+    <state width="1238" height="138" key="GridCell.Tab.1.left" timestamp="1591523993534">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.1.left/0.0.1280.760@0.0.1280.760" timestamp="1591523993534" />
+    <state width="1238" height="138" key="GridCell.Tab.1.right" timestamp="1591523993534">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state width="1238" height="138" key="GridCell.Tab.1.right/0.0.1280.760@0.0.1280.760" timestamp="1591523993534" />
+    <state x="350" y="96" key="MultipleFileMergeDialog" timestamp="1591515209888">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="350" y="96" key="MultipleFileMergeDialog/0.0.1280.760@0.0.1280.760" timestamp="1591515209888" />
+    <state x="389" y="91" key="RollbackChangesDialog" timestamp="1591525023825">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="389" y="91" key="RollbackChangesDialog/0.0.1280.760@0.0.1280.760" timestamp="1591525023825" />
+    <state x="142" y="23" key="SettingsEditor" timestamp="1591522993898">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="142" y="23" key="SettingsEditor/0.0.1280.760@0.0.1280.760" timestamp="1591522993898" />
+    <state x="233" y="114" key="Vcs.Push.Dialog.v2" timestamp="1591446334705">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="233" y="114" key="Vcs.Push.Dialog.v2/0.0.1280.760@0.0.1280.760" timestamp="1591446334705" />
+    <state x="324" y="93" key="git4idea.branch.GitSmartOperationDialog" timestamp="1591525035303">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="324" y="93" key="git4idea.branch.GitSmartOperationDialog/0.0.1280.760@0.0.1280.760" timestamp="1591525035303" />
+    <state x="405" y="172" key="git4idea.merge.GitMergeDialog" timestamp="1591515173635">
+      <screen x="0" y="0" width="1280" height="760" />
+    </state>
+    <state x="405" y="172" key="git4idea.merge.GitMergeDialog/0.0.1280.760@0.0.1280.760" timestamp="1591515173635" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
