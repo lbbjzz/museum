@@ -4,22 +4,12 @@ spring:
 #    url: jdbc:mysql://localhost:3306/group3?serverTimezone=UTC&setUnicode=true&characterEncoding=utf8&useAffectedRows=true
     url: jdbc:mysql://39.96.22.34:3306/group3?serverTimezone=UTC&setUnicode=true&characterEncoding=utf8&useAffectedRows=true
     username: root
-#    password: 19980907
     password: 123
+#    password: 123456
 
 
 
   port: 8088
-
-
-  resources:
-    static-locations: classpath:static/,file:${jar.fileUrl}
-
-
-
-# file配置(jar和fileUrl自己随意定义)
-jar:
-  fileUrl: D:/static
 
 
 

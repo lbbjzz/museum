@@ -19,7 +19,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -33,6 +32,8 @@ public class culturalRelicController {
     String fileName;
     @Resource
     CulturalMapper culturalMapper;
+
+
 
 
 
@@ -121,13 +122,13 @@ public class culturalRelicController {
 
     @PostMapping("/ajaxUploadFile")
     @ResponseBody
-    public Map<String, Object> ajaxUploadFile(MultipartFile[] files, HttpSession session){
+    public Map<String, Object> ajaxUploadFile(MultipartFile[] files){
         Map<String, Object> map=new HashMap<>();
         for(MultipartFile file:files){
             fileName = file.getOriginalFilename();
-            String path = System.getProperty("user.dir");
-
+//            String path = System.getProperty("user.dir");
 //            String dirPath = path+"/src/main/resources/static/cultural/";
+
 
             ApplicationHome h = new ApplicationHome(getClass());
             File jarF = h.getSource();
@@ -142,8 +143,6 @@ public class culturalRelicController {
             try{
                 file.transferTo((new File(dirPath+fileName)));
                 map.put("msg","上传成功！");
-                System.out.println(fileName);
-
             }catch (Exception e){
                 e.printStackTrace();
                 map.put("msg","上传失败！");

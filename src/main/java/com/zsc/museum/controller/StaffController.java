@@ -3,14 +3,23 @@ import com.zsc.museum.domain.Staff;
 import com.zsc.museum.mapper.StaffMapper;
 import com.zsc.museum.service.CulturalRelicService;
 import com.zsc.museum.service.StaffService;
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.List;
 //用户管理类控制器
@@ -22,6 +31,7 @@ public class StaffController {
     StaffMapper staffMapperMapper;
 
 
+
     @Autowired
     public StaffService staffService;
 
@@ -30,60 +40,39 @@ public class StaffController {
     public CulturalRelicService culturalService;
 
     //登录
-    //@RequestMapping(value = "/loginResources", method = {RequestMethod.POST, RequestMethod.GET})
-    @RequestMapping("/tologin")
+    @RequestMapping(value = "/tologin", method = {RequestMethod.POST, RequestMethod.GET})
     public String login(Model model) {
-        System.out.println("******************************这里是登录方法*****************");
         model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         return "login";
     }
+
+
 
     @RequestMapping(value = "/loginPage", method = {RequestMethod.POST, RequestMethod.GET})
     public String login(HttpServletRequest request, HttpSession session) {
         String number = request.getParameter("number");
         String password = request.getParameter("password");
         String tname = staffService.login(number, password);
+
         session.setAttribute("tname", tname);
         if (tname == null) {
-            return "redirect:/tologin";
+            return "redirect:/tologin?error";
         } else {
             return "redirect:/findFirstPage";
         }
     }
 
     //拍照并把照片名称存入数据库
-    @RequestMapping(value = "/photo", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/photosave", method = {RequestMethod.POST, RequestMethod.GET})
     public String imgFileName(HttpServletRequest request) {
         String imgId = request.getParameter("imgId");
         String imgFileName="cultural"+imgId+".png";
 
         culturalService.imgFileName(imgFileName,imgId);
-        return "pages/photo";
+        return "pages/photoEdit";
 
     }
 
-    //拍照并把照片名称存入数据库
-//    @RequestMapping("/photo")
-//    public @ResponseBody String imgFileName(HttpServletRequest request,String dataURL,String test) {
-//        String imgId = request.getParameter("imgId");
-//        String imgFileName="cultural"+imgId+".png";
-//
-//        culturalService.imgFileName(imgFileName,imgId);
-//
-//        BASE64Decoder decoder=new BASE64Decoder();
-//        dataURL=dataURL.replace(" ","+");
-//        try {
-//            byte[] b = decoder.decodeBuffer(dataURL);
-//            ByteArrayInputStream bais=new ByteArrayInputStream(b);
-//            BufferedImage bi1= ImageIO.read(bais);
-//            String path=request.getSession().getServletContext().getRealPath("/src/main/resources/static/cultural/zby.jpg");
-//            File w2=new File(path);
-//            ImageIO.write(bi1,"png",w2);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return "pages/photoEdit";
-//    }
 
 
     //估值
