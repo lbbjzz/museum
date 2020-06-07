@@ -46,14 +46,17 @@ public class StaffController {
         return "/login";
     }
 
+
+
     @RequestMapping(value = "/loginPage", method = {RequestMethod.POST, RequestMethod.GET})
     public String login(HttpServletRequest request, HttpSession session) {
         String number = request.getParameter("number");
         String password = request.getParameter("password");
         String tname = staffService.login(number, password);
+
         session.setAttribute("tname", tname);
         if (tname == null) {
-            return "redirect:/tologin";
+            return "redirect:/tologin?error";
         } else {
             return "redirect:/findFirstPage";
         }
