@@ -43,7 +43,7 @@ public class StaffController {
     @RequestMapping(value = "/tologin", method = {RequestMethod.POST, RequestMethod.GET})
     public String login(Model model) {
         model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
-        return "/login";
+        return "login";
     }
 
 
