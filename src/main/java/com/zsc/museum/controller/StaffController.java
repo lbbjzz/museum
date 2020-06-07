@@ -62,48 +62,17 @@ public class StaffController {
         }
     }
 
-//    //拍照并把照片名称存入数据库
-//    @RequestMapping(value = "/photo", method = {RequestMethod.POST, RequestMethod.GET})
-//    public String imgFileName(HttpServletRequest request) {
-//        String imgId = request.getParameter("imgId");
-//        String imgFileName="cultural"+imgId+".png";
-//
-//        culturalService.imgFileName(imgFileName,imgId);
-//        return "pages/photo";
-//
-//    }
-//拍照并把照片名称存入数据库
-@RequestMapping(value = "/photosave", method = {RequestMethod.POST, RequestMethod.GET})
-public String imgFileName(HttpServletRequest request) {
-    String imgId = request.getParameter("imgId");
-    String imgFileName="cultural"+imgId+".png";
-
-    culturalService.imgFileName(imgFileName,imgId);
-    return "pages/photoEdit";
-
-}
     //拍照并把照片名称存入数据库
-//    @RequestMapping("/photo")
-//    public @ResponseBody String imgFileName(HttpServletRequest request,String dataURL,String test) {
-//        String imgId = request.getParameter("imgId");
-//        String imgFileName="cultural"+imgId+".png";
-//
-//        culturalService.imgFileName(imgFileName,imgId);
-//
-//        BASE64Decoder decoder=new BASE64Decoder();
-//        dataURL=dataURL.replace(" ","+");
-//        try {
-//            byte[] b = decoder.decodeBuffer(dataURL);
-//            ByteArrayInputStream bais=new ByteArrayInputStream(b);
-//            BufferedImage bi1= ImageIO.read(bais);
-//            String path=request.getSession().getServletContext().getRealPath("/src/main/resources/static/cultural/zby.jpg");
-//            File w2=new File(path);
-//            ImageIO.write(bi1,"png",w2);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return "pages/photoEdit";
-//    }
+    @RequestMapping(value = "/photosave", method = {RequestMethod.POST, RequestMethod.GET})
+    public String imgFileName(HttpServletRequest request) {
+        String imgId = request.getParameter("imgId");
+        String imgFileName="cultural"+imgId+".png";
+
+        culturalService.imgFileName(imgFileName,imgId);
+        return "pages/photoEdit";
+
+    }
+
 
 
     //估值
