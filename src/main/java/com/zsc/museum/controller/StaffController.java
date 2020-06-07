@@ -40,7 +40,7 @@ public class StaffController {
     public CulturalRelicService culturalService;
 
     //登录
-    @RequestMapping(value = "/login", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/tologin", method = {RequestMethod.POST, RequestMethod.GET})
     public String login(Model model) {
         model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
         return "/login";
@@ -53,7 +53,7 @@ public class StaffController {
         String tname = staffService.login(number, password);
         session.setAttribute("tname", tname);
         if (tname == null) {
-            return "redirect:/login";
+            return "redirect:/tologin";
         } else {
             return "redirect:/findFirstPage";
         }
