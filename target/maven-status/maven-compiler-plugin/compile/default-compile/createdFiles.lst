@@ -1,5 +1,6 @@
 com\zsc\museum\domain\Staff.class
 com\zsc\museum\domain\Borrow.class
+com\zsc\museum\config\PathConfig.class
 com\zsc\museum\mapper\OutMapper.class
 com\zsc\museum\domain\Repair.class
 com\zsc\museum\controller\WarehouseController.class
@@ -12,12 +13,12 @@ com\zsc\museum\service\CulturalRelicService.class
 com\zsc\museum\controller\culturalRelicController.class
 com\zsc\museum\controller\InController.class
 com\zsc\museum\mapper\WarehouseMapper.class
+com\zsc\museum\controller\GetPathController.class
 com\zsc\museum\domain\In_library.class
 com\zsc\museum\mapper\ReturnMapper.class
 com\zsc\museum\mapper\StaffMapper.class
 com\zsc\museum\controller\returnController.class
 com\zsc\museum\domain\Cultural_relic.class
-com\zsc\museum\controller\LoginController.class
 com\zsc\museum\MuseumApplication.class
 com\zsc\museum\mapper\CulturalMapper.class
 com\zsc\museum\domain\Out_library.class

@@ -2,10 +2,10 @@ F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controll
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\domain\Staff.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\service\StaffService.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controller\WarehouseController.java
-F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controller\LoginController.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\domain\Warehouse.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controller\culturalRelicController.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\mapper\StaffMapper.java
+F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\config\PathConfig.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controller\StaffController.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\mapper\ReturnMapper.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controller\indexController.java
@@ -17,6 +17,7 @@ F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controll
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\config\MyLocalResovel.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\domain\Cultural_relic.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\mapper\CulturalMapper.java
+F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\controller\GetPathController.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\mapper\InMapper.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\domain\Return.java
 F:\Git\GitRepository\java\managementSystem\src\main\java\com\zsc\museum\mapper\BorrowMapper.java

@@ -3,23 +3,14 @@ import com.zsc.museum.domain.Staff;
 import com.zsc.museum.mapper.StaffMapper;
 import com.zsc.museum.service.CulturalRelicService;
 import com.zsc.museum.service.StaffService;
-import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.List;
 //用户管理类控制器
@@ -31,9 +22,6 @@ public class StaffController {
     StaffMapper staffMapperMapper;
 
 
-
-
-
     @Autowired
     public StaffService staffService;
 
@@ -42,10 +30,12 @@ public class StaffController {
     public CulturalRelicService culturalService;
 
     //登录
-    @RequestMapping(value = "/login", method = {RequestMethod.POST, RequestMethod.GET})
+    //@RequestMapping(value = "/loginResources", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping("/tologin")
     public String login(Model model) {
+        System.out.println("******************************这里是登录方法*****************");
         model.addAttribute("currentYear", Calendar.getInstance().get(Calendar.YEAR));
-        return "/login";
+        return "login";
     }
 
     @RequestMapping(value = "/loginPage", method = {RequestMethod.POST, RequestMethod.GET})
@@ -55,7 +45,7 @@ public class StaffController {
         String tname = staffService.login(number, password);
         session.setAttribute("tname", tname);
         if (tname == null) {
-            return "redirect:/login";
+            return "redirect:/tologin";
         } else {
             return "redirect:/findFirstPage";
         }
