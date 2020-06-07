@@ -1,0 +1,112 @@
+<!--文物详情界面-->
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout::head"></head>
+<body class="hold-transition  sidebar-mini bg-gray ">
+<div class="wrapper">
+    <!-- 顶部导航栏 Navbar -->
+    <nav th:replace="fragments/layout::topNav"></nav>
+    <!-- 侧边导航栏 Main Sidebar Container -->
+    <aside th:replace="fragments/layout::leftAside"></aside>
+
+    <!--页面内容 Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+
+        </div>
+        <!-- 页面主要内容Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- 内容 -->
+
+                <div class="row" style="color: black;">
+                    <div class="col-12">
+                        <div class="card">
+
+                            <!-- 表格 -->
+                            <div class="card-header" style="padding: 8px"> 文物详情页面
+                                <a class="btn btn-primary btn-sm float-right" th:href="@{/culturalInfo}"> <i
+                                        class="fa fa-list"></i> 返回文物列表</a>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li>文物编号:
+                                        <span th:text="${cultural_relic.id}"></span>
+                                    </li>
+                                    <li>文物名称:
+                                        <span th:text="${cultural_relic.name}"></span>
+                                    </li>
+                                    <li>文物朝代:
+                                        <span th:text="${cultural_relic.age}"></span></li>
+                                    <li>年号:
+                                        <span th:text="${cultural_relic.wareHouse}"></span>
+                                    </li>
+                                    <li>数量:
+                                        <span th:text="${cultural_relic.number}"></span>
+                                    </li>
+                                    <li>尺寸:
+                                        <span th:text="${cultural_relic.size}"></span>
+                                    </li>
+                                    <li>材质:
+                                        <span th:text="${cultural_relic.material}"></span>
+                                    </li>
+                                    <li>来源:
+                                        <span th:text="${cultural_relic.source}"></span>
+                                    </li>
+                                    <li>价值:
+                                        <span th:text="${cultural_relic.price}"></span>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="lightbox" data-title="唐三彩"
+                                           th:href="'/cultural/'+${cultural_relic.image}" target="_blank">
+                                            <img width="40"
+                                                 th:src="'/cultural/'+${cultural_relic.image}"
+                                                 style="width: auto;height: 60px;" alt="文物图片">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer">
+                                <a class="btn btn-warning" style="margin: 5px;" th:href="'/edit/' + ${cultural_relic.id}"> <i
+                                        class="fa fa-edit"></i> 编辑文物</a>
+                                <a class="btn btn-warning" style="margin: 5px;" th:href="'/toBorrow/' + ${cultural_relic.id}"> <i
+                                        class="fa fa-edit"></i> 借出</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+    <!-- 底部页脚Footer -->
+    <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
+</div>
+
+</div>
+
+
+<script>
+    $(function () {
+        checkForm();
+    })
+    // 表单输入框数据校验
+    function checkForm() {
+        $("#CulturalRelicsDetailsForm").submit(function (event) {
+            const f = $(this)  //获取当前对象
+            if (f[0].checkValidity() === false) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            f.addClass("was-validated")
+        })
+    }
+</script>
+
+
+</body>
+
+</html>

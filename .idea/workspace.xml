@@ -1,48 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e909095f-ec38-495f-b785-9b409efc8a21" name="默认更改列表" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/photoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/cultural/cultural16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/cultural/cultural9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/loginError.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/config/MyWebMvcConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/photoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/cultural/cultural16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/cultural/cultural9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/static/images/loginError.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/config/PathConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/config/MyWebMvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/GetPathController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/StaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/culturalRelicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zsc/museum/controller/culturalRelicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/dist/js/adminlte.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/plugins/raphael/raphael.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/plugins/raphael/raphael.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/getImage/getImage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/CulturalRelicsInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/CulturalRelicsInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/photoEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/photoEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/config/PathConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/GetPathController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/StaffController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/StaffController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/culturalRelicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/zsc/museum/controller/culturalRelicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/dist/js/adminlte.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/plugins/raphael/raphael.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/plugins/raphael/raphael.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/getImage/getImage.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/pages/CulturalRelicsInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pages/CulturalRelicsInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/pages/photoEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/pages/photoEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
+    <list default="true" id="472ca0cd-39fd-425c-ade0-2b9be792addc" name="Default Changelist" comment="修复登出bug">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/managementSystem.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/museum-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +54,8 @@
   </component>
   <component name="ProjectId" id="1cwgGdDUHIYaoRyNa1uuQBCcClQ" />
   <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="compactDirectories" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>

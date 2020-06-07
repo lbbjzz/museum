@@ -1,0 +1,163 @@
+<!--文物信息一览界面-->
+
+<!--文物估值界面-->
+
+
+<!--文物拍照界面-->
+<!--原型界面-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/layout::head"></head>
+<body class="hold-transition  sidebar-mini bg-black ">
+<div class="wrapper">
+    <!-- 顶部导航栏 Navbar -->
+    <nav th:replace="fragments/layout::topNav"></nav>
+    <!-- 侧边导航栏 Main Sidebar Container -->
+    <aside th:replace="fragments/layout::leftAside"></aside>
+
+    <!--页面内容 Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="text-dark">归还详细一览</h1>
+                    </div>
+                    <!--   面包屑-->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a th:href="@{/returnDetails}">Home</a></li>
+                            <li class="breadcrumb-item active">归还详细一览</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 页面主要内容Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <!-- 内容 -->
+
+                <div class="row" style="color: black;">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-tools">
+                                    <div class="input-group input-group-sm" style="width: 200px;margin-top: 1px;">
+                                        <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="请输入文物编号">
+                                        <div class="input-group-append">
+                                            <button type="submit" onclick="javascript:butOnclick();" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                            <script>
+                                                function butOnclick()
+                                                {
+                                                    var inputId=document.getElementById("table_search").value;
+                                                    window.location.href="ByCulturalRelicId?culturalRelicId="+inputId;
+                                                }
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <!--                                    <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-toggle="dropdown"-->
+                                    <!--                                            aria-haspopup="true" aria-expanded="false">-->
+                                    <!--                                        <i class="fa fa-filter"></i>-->
+                                    <!--                                        筛选-->
+                                    <!--                                    </button>-->
+                                    <div class="dropdown-menu">
+                                        <div class="btn-group dropright">
+                                            <button type="button" id="toggleBtn" class="btn dropdown-toggle" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false" style="padding-right: 100%;">
+                                                仓库
+                                            </button>
+                                            <div class="dropdown-menu" id="mydrop">
+                                                <a class="dropdown-item" href="#" id="a">西南角仓库</a>
+                                                <a class="dropdown-item" href="#">东南角仓库</a>
+                                                <a class="dropdown-item" href="#">南角仓库</a>
+                                                <a class="dropdown-item" href="#">西南角仓库</a>
+                                                <a class="dropdown-item" href="#">西南角仓库</a>
+                                                <a class="dropdown-item" href="#">西南角仓库</a>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown-divider"></div>
+                                        <div id="dropStatus">
+                                            <a class="dropdown-item" href="#">在馆</a>
+                                            <a class="dropdown-item" href="#">修复</a>
+                                            <a class="dropdown-item" href="#">外借</a>
+                                            <a class="dropdown-item" href="#">离馆</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 表格 -->
+                            <div class="card-body table-responsive p-0" style="height: 500px;">
+                                <table class="table table-head-fixed text-nowrap table-bordered table-hover table-striped my-table"
+                                       id="returnInfoTable">
+                                    <thead>
+                                        <tr>
+                                            <th>归还序号</th>
+                                            <th>文物编号</th>
+                                            <th>出借单位</th>
+                                            <th>借出时间</th>
+                                            <th>归还时间</th>
+                                            <th style="width: 150px;">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tr th:each="item,eee: ${Rdetails}">
+                                        <td th:text="${item.returnId}"></td>
+                                        <td th:text="${item.culturalRelicId}"></td>
+                                        <td th:text="${item.forWho}"></td>
+                                        <td th:text="${item.borrowTime}"></td>
+                                        <td th:text="${item.returnTime}"></td>
+                                        <td>
+                                            <a th:href="'/returnDelete/'+${item.returnId}"
+                                               class="btn btn-danger btn-xs delete-confirm-btn" >
+                                                <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                                删除</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content -->
+    </div>
+    <!-- 底部页脚Footer -->
+    <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
+
+</div>
+
+
+<script>
+    // 删除按钮
+    $("#returnInfoTable").on('click', '.delete-confirm-btn', function (e) {
+        e.preventDefault();
+// 获取a标签的url
+        let targetUrl = $(this).attr("href");
+        Swal.fire({
+            title: `您确定删除吗?`,
+            text: "此操作不可逆,请慎重考虑",
+            type:'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#dc3545',
+            cancelButtonText: '取消',
+            confirmButtonText: '确认'
+        }).then((result) => {
+            if (result.value) {
+            $(location).attr('href', targetUrl);
+        }
+    });
+    });
+</script>
+
+</body>
+
+</html>
