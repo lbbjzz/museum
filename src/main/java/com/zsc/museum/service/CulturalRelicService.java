@@ -19,10 +19,4 @@ public class CulturalRelicService {
         return culturalMapper.imgFileName(imgFileName, id);
     }
 
-//    public String select(String imgId) {
-//        return culturalMapper.select(imgId);
-//    }
-    //public String picture(Blob picture, String id) {
-    //    return culturalMapper.picture(picture, id);
-    //}
 }

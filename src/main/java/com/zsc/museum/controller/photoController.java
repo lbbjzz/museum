@@ -1,10 +1,13 @@
 package com.zsc.museum.controller;
 
+import com.zsc.museum.service.StaffService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.system.ApplicationHome;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +16,9 @@ import java.util.Map;
 @RestController
 public class photoController {
 
+
+    @Autowired
+    public StaffService staffService;
     @RequestMapping(value = "/photosavedemo", method = RequestMethod.POST)
     @ResponseBody
 
@@ -30,9 +36,9 @@ public class photoController {
         ApplicationHome h = new ApplicationHome(getClass());
         File jarF = h.getSource();
         String dirPath = jarF.getParentFile().toString()+"/upload/";
-        System.out.println(dirPath);
+        //System.out.println(dirPath);
 
-        System.out.println(images);
+        //System.out.println(images);
         File filePath = new File(dirPath);
         if (!filePath.exists()) {
             filePath.mkdirs();
@@ -45,6 +51,14 @@ public class photoController {
             map.put("msg", "失败！");
         }
         return map;
+    }
+
+
+    @RequestMapping(value = "/status", method = {RequestMethod.POST, RequestMethod.GET})
+    public String imgFileName(HttpSession httpsession) {
+        String a = staffService.status(0,1);
+        return "redirect:/tologin";
+
     }
 
 }

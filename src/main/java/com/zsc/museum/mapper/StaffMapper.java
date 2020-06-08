@@ -44,5 +44,10 @@ public interface StaffMapper {
     @Select("select name from staff where number=#{number} and password=#{password}")
     public String login(@Param("number") String number, @Param("password") String password);
 
+    @Select("UPDATE status SET path=#{path} where id=#{id}")
+    public String status(@Param("path") int path, @Param("id") int id);
 
+
+    @Select("select id from status where path=#{path}")
+    public String selectstatus(@Param("path") int path);
 }

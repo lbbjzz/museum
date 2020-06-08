@@ -1,9 +1,11 @@
 package com.zsc.museum.controller;
 import com.zsc.museum.domain.Warehouse;
 import com.zsc.museum.mapper.WarehouseMapper;
+import com.zsc.museum.service.StaffService;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -23,12 +26,25 @@ public class WarehouseController {
     @Resource
     WarehouseMapper warehouseMapper;
 
+    @Autowired
+    public StaffService staffService;
+
     //仓库显示
     @GetMapping("/wareHouse")
-    public String listWarehouse(Model model) {
+    public String listWarehouse(Model model, HttpSession httpSession) {
         List<Warehouse> warehouse=warehouseMapper.findAll();
         model.addAttribute("warehouse", warehouse);
-        return "pages/wareHouse";
+
+        String a = staffService.selectstatus(1);
+        httpSession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/wareHouse";
+        }
+
     }
 
     //仓库添加

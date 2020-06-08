@@ -13,4 +13,13 @@ public class StaffService {
     public String login(String number, String password) {
         return staffMapper.login(number, password);
     }
+
+
+    public String status(int path, int id) {
+        return staffMapper.status(path, id);
+    }
+
+    public String selectstatus(int path) {
+        return staffMapper.selectstatus(path);
+    }
 }

@@ -5,6 +5,7 @@ import com.zsc.museum.domain.Warehouse;
 import com.zsc.museum.mapper.CulturalMapper;
 import com.zsc.museum.mapper.WarehouseMapper;
 import com.zsc.museum.service.CulturalRelicService;
+import com.zsc.museum.service.StaffService;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -19,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -33,25 +35,47 @@ public class culturalRelicController {
     @Resource
     CulturalMapper culturalMapper;
 
+    @Autowired
+    public StaffService staffService;
 
 
 
 
     //单页显示文物
     @GetMapping("/culturalInfo")
-    public String listCultural(Model model) {
+    public String listCultural(Model model, HttpSession httpSession) {
         List<Cultural_relic> cultural_relics=culturalMapper.findAll();
         model.addAttribute("cultural", cultural_relics);
-        return "pages/CulturalRelicsInfo";
+
+        String a = staffService.selectstatus(1);
+        httpSession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/CulturalRelicsInfo";
+        }
+
     }
 
     @GetMapping("/findFirstPage")
-    public String findtoPage(Model model,Integer i) {
+    public String findtoPage(Model model,Integer i,HttpSession httpSession) {
         List<Cultural_relic> cultural = culturalMapper.FindtoPage(0);
         List<Cultural_relic> cultural_relics=culturalMapper.findAll();
         model.addAttribute("cultural", cultural);
         model.addAttribute("num", cultural_relics.size());
-        return "pages/CulturalRelicsInfo";
+
+        String a = staffService.selectstatus(1);
+        httpSession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/CulturalRelicsInfo";
+        }
+
     }
 
     @GetMapping("/findtoPage")
@@ -65,20 +89,42 @@ public class culturalRelicController {
 
     //文物详情
     @GetMapping("/details/{id}")
-    public String detail(@PathVariable Long id, Model model) {
+    public String detail(@PathVariable Long id, Model model,HttpSession httpSession) {
         Cultural_relic cultural_relic = culturalMapper.SelectOne(id);
         model.addAttribute("cultural_relic", cultural_relic);
-        return "pages/CulturalRelicsDetails";
+
+
+        String a = staffService.selectstatus(1);
+        httpSession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/CulturalRelicsDetails";
+        }
+
     }
 
     //编辑文物
     @GetMapping("/edit/{id}")
-    public String toCulturalEdit(@PathVariable Long id, Model model) {
+    public String toCulturalEdit(@PathVariable Long id, Model model,HttpSession httpSession) {
         Cultural_relic cultural_relic = culturalMapper.SelectOne(id);
         model.addAttribute("cultural_relic", cultural_relic);
         List<Warehouse> warehouses = culturalMapper.findAllWareHouse();
         model.addAttribute("warehouses", warehouses);
-        return "pages/CulturalRelicsEdit";
+
+
+        String a = staffService.selectstatus(1);
+        httpSession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/CulturalRelicsEdit";
+        }
+
     }
 
 
@@ -113,11 +159,21 @@ public class culturalRelicController {
 
     //通过名字模糊查找
     @GetMapping("/selectbyname")
-    public String SelectByName(Model model, HttpServletRequest request) {
+    public String SelectByName(Model model, HttpServletRequest request,HttpSession httpSession) {
         String name = request.getParameter("name");
         List<Cultural_relic> cultural = culturalMapper.SelectByName(name);
         model.addAttribute("cultural", cultural);
-        return "pages/CulturalRelicsInfo";
+
+        String a = staffService.selectstatus(1);
+        httpSession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/CulturalRelicsInfo";
+        }
+
     }
 
     @PostMapping("/ajaxUploadFile")

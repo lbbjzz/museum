@@ -51,7 +51,10 @@
                         <p class="text-white" th:text="${session.tname}" style="margin-bottom: 20px;"></p>
                     </li>
                     <li class="user-footer">
-                        <a th:href="@{/tologin}" class="btn btn-default btn-flat" style="float:right;">退出登录</a>
+<!--                        <a th:href="@{/tologin}" class="btn btn-default btn-flat" style="float:right;">退出登录</a>-->
+                        <form th:method="POST" action="status" id="myform">
+                            <a th:href="@{/tologin}" class="btn btn-default btn-flat" style="float:right;" onclick="document.getElementById('myform').submit()">退出登录</a>
+                        </form>
                     </li>
                 </ul>
             </li>

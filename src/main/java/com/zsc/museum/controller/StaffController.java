@@ -55,21 +55,35 @@ public class StaffController {
         String tname = staffService.login(number, password);
 
         session.setAttribute("tname", tname);
+
+
         if (tname == null) {
             return "redirect:/tologin?error";
         } else {
+            staffService.status(1, 1);
             return "redirect:/findFirstPage";
         }
     }
 
     //拍照并把照片名称存入数据库
     @RequestMapping(value = "/photosave", method = {RequestMethod.POST, RequestMethod.GET})
-    public String imgFileName(HttpServletRequest request) {
+    public String imgFileName(HttpServletRequest request,HttpSession httpsession) {
         String imgId = request.getParameter("imgId");
         String imgFileName="cultural"+imgId+".png";
 
         culturalService.imgFileName(imgFileName,imgId);
-        return "pages/photoEdit";
+
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/photoEdit";
+        }
+
 
     }
 
@@ -77,12 +91,22 @@ public class StaffController {
 
     //估值
     @RequestMapping(value = "/estimateEdit", method = {RequestMethod.POST, RequestMethod.GET})
-    public String value(HttpServletRequest request, HttpSession session) {
+    public String value(HttpServletRequest request,HttpSession httpsession) {
         String id = request.getParameter("id");
         String price = request.getParameter("price");
 
         culturalService.value(price,id);
-        return "pages/estimateEdit";
+
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/estimateEdit";
+        }
     }
 
 
@@ -91,52 +115,125 @@ public class StaffController {
 
     //查看用户
     @GetMapping("/employees")
-    public String listStaff(Model model) {
+    public String listStaff(Model model,HttpSession httpsession) {
         List<Staff> staff=staffMapperMapper.findAll();
         model.addAttribute("Staff", staff);
-        return "pages/employees";
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/employees";
+        }
+
     }
 
     //增加用户
     @GetMapping("/AddStaff")
-    public String StaffAdd() {
+    public String StaffAdd(HttpSession httpsession) {
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
             return "pages/employeesAdd";
         }
 
-    @PostMapping("/createStaff")
-    public String createStaff(Staff staff) {
-        staffMapperMapper.Insert(staff);
-        return "redirect:/employees?result=1";
     }
 
+    @PostMapping("/createStaff")
+    public String createStaff(Staff staff,HttpSession httpsession) {
+        staffMapperMapper.Insert(staff);
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "redirect:/employees?result=1";
+        }
+
+    }
     //删除用户
     @GetMapping("/deleteemployee/{id}")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable Long id,HttpSession httpsession) {
         staffMapperMapper.delete(id);
         //重定向到list URL
-        return "redirect:/employees?result=1";
+
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "redirect:/employees?result=1";
+        }
+
     }
 
     @GetMapping("/editemployee/{id}")
-    public String toemployeesEdit(@PathVariable Long id, Model model) {
+    public String toemployeesEdit(@PathVariable Long id, Model model,HttpSession httpsession) {
         Staff staff = staffMapperMapper.SelectOne(id);
         model.addAttribute("Staff", staff);
-        return "pages/employeesEdit";
+
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/employeesEdit";
+        }
+
     }
 
     @PostMapping("/updateemployee")
-    public String employeesEdit(Staff staff) {
+    public String employeesEdit(Staff staff,HttpSession httpsession) {
         staffMapperMapper.update(staff);
-        return "redirect:/employees?result=1";
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "redirect:/employees?result=1";
+        }
+
+
+
     }
 
     //通过名字模糊查找
     @GetMapping("/selectbystaffname")
-    public String SelectByName(Model model, HttpServletRequest request) {
+    public String SelectByName(Model model, HttpServletRequest request,HttpSession httpsession) {
         String name = request.getParameter("name");
         List<Staff> staff = staffMapperMapper.SelectByName(name);
         model.addAttribute("Staff", staff);
-        return "pages/employees";
+
+        String a = staffService.selectstatus(1);
+        httpsession.setAttribute("a", a);
+
+        if(a==null){
+            return "redirect:/tologin?ban";
+        }
+        else{
+            return "pages/employees";
+        }
+
     }
 
 
