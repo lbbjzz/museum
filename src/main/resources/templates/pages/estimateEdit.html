@@ -52,15 +52,18 @@
                                     <div class="form-group row">
                                         <label for="inValue"  class="col-md-2  col-form-label">文物编号</label>
                                         <div class="col-md-10">
-                                            <input name="id" type="text" class="form-control" id="inValue" required="">
+                                            <input onkeyup="this.value=this.value.replace(/\D|^0/g,'')" onafterpaste="this.value=this.value.replace(/\D|^0/g,'')" name="id" type="text" class="form-control" id="inValue" required="" placeholder="请输入文物编号">
                                         </div>
+
                                     </div>
                                     <div class="form-group row">
                                         <label for="outValue"  class="col-md-2  col-form-label">文物价值</label>
                                         <div class="col-md-10">
-                                            <input name="price" type="text" class="form-control" id="outValue" required="">
+                                            <input onkeyup="this.value=this.value.replace(/\D|^0/g,'')" onafterpaste="this.value=this.value.replace(/\D|^0/g,'')" name="price" type="text" class="form-control" id="outValue" required="" placeholder="请输入文物估值">
                                         </div>
+
                                     </div>
+                                    <div style="text-align:right;font-size: 10px">提示<span style="color:red;font-size: 12px;">（*）</span>：输入信息均大于0</div>
                                     <hr class="mb-4">
                                     <button class="btn btn-primary btn-lg btn-block"
                                             type="submit">提交信息
