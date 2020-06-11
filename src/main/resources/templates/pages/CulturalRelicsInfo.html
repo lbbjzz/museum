@@ -39,55 +39,25 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 200px;margin-top: 1px;">
-                                        <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="请输入文物名称">
-                                        <div class="input-group-append">
-                                            <button type="submit" onclick="javascript:butOnclick11();" class="btn btn-default"><i class="fas fa-search"></i></button>
-                                            <script>
-                                                function butOnclick11()
-                                                {
-                                                    var inputname=document.getElementById("table_search").value;
-                                                    window.location.href="selectbyname?name="+inputname;
-                                                }
-                                            </script>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btn-group">
-                                    <!--                                    <button type="button" class="btn btn-outline-primary btn-sm dropdown-toggle" data-toggle="dropdown"-->
-                                    <!--                                            aria-haspopup="true" aria-expanded="false">-->
-                                    <!--                                        <i class="fa fa-filter"></i>-->
-                                    <!--                                        筛选-->
-                                    <!--                                    </button>-->
-                                    <div class="dropdown-menu">
-                                        <div class="btn-group dropright">
-                                            <button type="button" id="toggleBtn" class="btn dropdown-toggle" data-toggle="dropdown"
-                                                    aria-haspopup="true" aria-expanded="false" style="padding-right: 100%;">
-                                                仓库
-                                            </button>
-                                            <div class="dropdown-menu" id="mydrop">
-                                                <a class="dropdown-item" href="#" id="a">西南角仓库</a>
-                                                <a class="dropdown-item" href="#">东南角仓库</a>
-                                                <a class="dropdown-item" href="#">南角仓库</a>
-                                                <a class="dropdown-item" href="#">西南角仓库</a>
-                                                <a class="dropdown-item" href="#">西南角仓库</a>
-                                                <a class="dropdown-item" href="#">西南角仓库</a>
-                                            </div>
-                                        </div>
-                                        <div class="dropdown-divider"></div>
-                                        <div id="dropStatus">
-                                            <a class="dropdown-item" href="#">在馆</a>
-                                            <a class="dropdown-item" href="#">修复</a>
-                                            <a class="dropdown-item" href="#">外借</a>
-                                            <a class="dropdown-item" href="#">离馆</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="display: inline-block;">
+
                                     <button onclick="javascript:ButtonOnclick();" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-export-execl">
                                         <i class="fa fa-file-excel"></i>&nbsp;导出Execl</button>
                                     <button onclick="paginationDisplay();" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#modal-export-execl"><a th:href="@{/culturalInfo}">单页显示</a></button>
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 200px;margin-top: 1px;">
+                                            <input type="text" id="table_search" name="table_search" class="form-control float-right" placeholder="请输入文物名称">
+                                            <div class="input-group-append">
+                                                <button type="submit" onclick="javascript:butOnclick11();" class="btn btn-default"><i class="fas fa-search"></i></button>
+                                                <script>
+                                                    function butOnclick11()
+                                                    {
+                                                        var inputname=document.getElementById("table_search").value;
+                                                        window.location.href="selectbyname?name="+inputname;
+                                                    }
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <script>
                                         function ButtonOnclick()
                                         {
@@ -98,7 +68,7 @@
                                             document.getElementById('pagination').style.display='none';
                                         }
                                     </script>
-                                </div>
+
                             </div>
                             <!-- 表格 -->
                             <div class="card-body table-responsive p-0" style="height: 500px;">

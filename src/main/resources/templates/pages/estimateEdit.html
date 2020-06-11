@@ -1,4 +1,9 @@
-<!-- 文物估值 -->
+
+
+<!--添加仓库界面-->
+
+
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/layout::head"></head>
@@ -8,7 +13,6 @@
     <nav th:replace="fragments/layout::topNav"></nav>
     <!-- 侧边导航栏 Main Sidebar Container -->
     <aside th:replace="fragments/layout::leftAside"></aside>
-
 
     <!--页面内容 Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -22,8 +26,8 @@
                     <!--   面包屑-->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">文物价值评估</li>
+                            <li class="breadcrumb-item"><a th:href="@{/findFirstPage}">Home</a></li>
+                            <li class="breadcrumb-item active">文物评估</li>
                         </ol>
                     </div>
                 </div>
@@ -80,9 +84,10 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+    <!-- 底部页脚Footer -->
+    <footer class="main-footer" th:replace="fragments/layout::footer"></footer>
 </div>
-<!-- 底部页脚Footer -->
-<footer class="main-footer" th:replace="fragments/layout::footer"></footer>
+
 </div>
 
 
@@ -92,7 +97,7 @@
     })
     // 表单输入框数据校验
     function checkForm() {
-        $("#estimateEditForm").submit(function (event) {
+        $("#wareHouseAddForm").submit(function (event) {
             const f = $(this)  //获取当前对象
             if (f[0].checkValidity() === false) {
                 event.preventDefault()
@@ -101,12 +106,21 @@
             f.addClass("was-validated")
         })
     }
-
-
-
 </script>
 
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
