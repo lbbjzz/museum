@@ -52,25 +52,41 @@
 
 
                             <div class="card-body">
-                                <form class="needs-validation" action="" novalidate id="estimateEditForm" >
-                                    <div class="form-group row">
-                                        <label for="inValue"  class="col-md-2  col-form-label">文物编号</label>
-                                        <div class="col-md-10">
-                                            <input onkeyup="this.value=this.value.replace(/\D|^0/g,'')" onafterpaste="this.value=this.value.replace(/\D|^0/g,'')" name="id" type="text" class="form-control" id="inValue" required="" placeholder="请输入文物编号">
-                                        </div>
+                                <form class="needs-validation" action="" novalidate id="estimateEditForm">
+                                    <!--                                    <div class="form-group row">-->
+                                    <!--                                        <label for="inValue"  class="col-md-2  col-form-label">文物编号</label>-->
+                                    <!--                                        <div class="col-md-10">-->
+                                    <!--                                            <input onkeyup="this.value=this.value.replace(/\D|^0/g,'')" onafterpaste="this.value=this.value.replace(/\D|^0/g,'')" name="id" type="text" class="form-control" id="inValue" required="" placeholder="请输入文物编号">-->
+                                    <!--                                        </div>-->
 
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="outValue"  class="col-md-2  col-form-label">文物价值</label>
-                                        <div class="col-md-10">
-                                            <input onkeyup="this.value=this.value.replace(/\D|^0/g,'')" onafterpaste="this.value=this.value.replace(/\D|^0/g,'')" name="price" type="text" class="form-control" id="outValue" required="" placeholder="请输入文物估值">
-                                        </div>
+                                    <!--                                    </div>-->
+                                    <!--                                    <div class="form-group row">-->
+                                    <!--                                        <label for="outValue"  class="col-md-2  col-form-label">文物价值</label>-->
+                                    <!--                                        <div class="col-md-10">-->
+                                    <!--                                            <input onkeyup="this.value=this.value.replace(/\D|^0/g,'')" onafterpaste="this.value=this.value.replace(/\D|^0/g,'')" name="price" type="text" class="form-control" id="outValue" required="" placeholder="请输入文物估值">-->
+                                    <!--                                        </div>-->
 
+                                    <!--                                    </div>-->
+                                    <!--                                    <div style="text-align:right;font-size: 10px">提示<span style="color:red;font-size: 12px;">（*）</span>：输入信息均大于0</div>-->
+
+                                    <div class="row">
+                                        <div class="mb-3 col-md-12">
+                                            <label for="id">文物编号 <span class="text-danger">(*)</span></label>
+                                            <input type="text" class="form-control"  id="id" name="id" required ="required">
+                                            <div class="invalid-feedback">文物编号不允许为空!</div>
+                                        </div>
                                     </div>
-                                    <div style="text-align:right;font-size: 10px">提示<span style="color:red;font-size: 12px;">（*）</span>：输入信息均大于0</div>
+
+                                    <div class="row">
+                                        <div class="mb-3 col-md-12">
+                                            <label for="price">文物估值 <span class="text-danger">(*)</span></label>
+                                            <input type="number" class="form-control"  id="price" name="price" required min="1">
+                                            <div class="invalid-feedback">文物估值必须大于0!</div>
+                                        </div>
+                                    </div>
                                     <hr class="mb-4">
                                     <button class="btn btn-primary btn-lg btn-block"
-                                            type="submit">提交信息
+                                            type="submit">提交估值
                                     </button>
                                 </form>
                             </div>
@@ -97,7 +113,7 @@
     })
     // 表单输入框数据校验
     function checkForm() {
-        $("#wareHouseAddForm").submit(function (event) {
+        $("#estimateEditForm").submit(function (event) {
             const f = $(this)  //获取当前对象
             if (f[0].checkValidity() === false) {
                 event.preventDefault()
@@ -106,6 +122,27 @@
             f.addClass("was-validated")
         })
     }
+
+
+
+    // function price() {
+    //     $.ajax({
+    //         method: 'POST',
+    //         url: '/estimateEditdemo',
+    //         data: {
+    //             id:$("input[name='id']").val(),
+    //             price:$("input[name='price']").val()
+    //         },
+    //         async: false,
+    //         success: function (res) {
+    //             alert(res.msg);
+    //         },
+    //         error: function (err) {
+    //             alert("服务器错误");
+    //         }
+    //     })
+    //
+    // }
 </script>
 
 
