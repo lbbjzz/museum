@@ -68,7 +68,6 @@
                                                     <th>文物编号</th>
                                                     <th>出借单位</th>
                                                     <th>借出时间</th>
-                                                    <th style="width: 150px; padding-left: 55px">操作</th>
                                                 </tr>
                                             </thead>
 
@@ -76,12 +75,6 @@
                                                 <td th:text="${item.borrowId}"></td>
                                                 <td th:text="${item.toWho}"></td>
                                                 <td th:text="${item.borrowTime}"></td>
-                                                <td>
-                                                    <a th:href="'/borrowDelete/'+${item.borrowId}"
-                                                          class="btn btn-danger btn-xs delete-confirm-btn" style="margin-left: 40px;color: white;" >
-                                                        <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                                                        归还</a>
-                                                </td>
                                             </tr>
                                         </table>
                                     </div>
